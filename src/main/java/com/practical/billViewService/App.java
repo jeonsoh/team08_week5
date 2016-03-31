@@ -1,4 +1,4 @@
-package com.practical.team08_week4;
+package com.practical.billViewService;
 
 /**
  * Hello world!
@@ -6,6 +6,9 @@ package com.practical.team08_week4;
  */
 public class App {
 	
+	private App(){
+		
+	}
     public static void main( String[] args ){
     	User myUser = new User("Gold",2000,3,"Gill-Dong");
     	Plan myPlan = new Gold();

@@ -1,4 +1,9 @@
-package com.practical.team08_week4;
+package com.practical.billViewService;
+
+import com.practical.billViewService.Calculator;
+import com.practical.billViewService.Gold;
+import com.practical.billViewService.Plan;
+import com.practical.billViewService.User;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -7,7 +12,6 @@ import junit.framework.TestSuite;
 
 
 public class CalculatorTest extends TestCase {
-	
 	
 	 public void testCalculator(){
 		User myUser = new User("Gold",2000,3,"Gill-Dong");

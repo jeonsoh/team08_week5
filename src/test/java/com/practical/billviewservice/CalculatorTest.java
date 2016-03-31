@@ -1,9 +1,9 @@
-package com.practical.billViewService;
+package com.practical.billviewservice;
 
-import com.practical.billViewService.Calculator;
-import com.practical.billViewService.Gold;
-import com.practical.billViewService.Plan;
-import com.practical.billViewService.User;
+import com.practical.billviewservice.Calculator;
+import com.practical.billviewservice.Gold;
+import com.practical.billviewservice.Plan;
+import com.practical.billviewservice.User;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

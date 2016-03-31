@@ -1,4 +1,4 @@
-package com.practical.billViewService;
+package com.practical.billviewservice;
 
 public class Calculator {
 

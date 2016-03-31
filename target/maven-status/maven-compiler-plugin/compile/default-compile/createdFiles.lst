@@ -1,7 +1,7 @@
-com/practical/billViewService/User.class
-com/practical/billViewService/App.class
-com/practical/billViewService/Gold.class
-com/practical/billViewService/Plan.class
-com/practical/billViewService/BillViewService.class
-com/practical/billViewService/Calculator.class
-com/practical/billViewService/Silver.class
+com/practical/billviewservice/Silver.class
+com/practical/billviewservice/App.class
+com/practical/billviewservice/BillViewService.class
+com/practical/billviewservice/User.class
+com/practical/billviewservice/Gold.class
+com/practical/billviewservice/Plan.class
+com/practical/billviewservice/Calculator.class

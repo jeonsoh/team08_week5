@@ -1,4 +1,4 @@
-package com.practical.billViewService;
+package com.practical.billviewservice;
 
 import java.util.logging.Logger;
 

@@ -1,4 +1,4 @@
-package com.practical.team08_week4;
+package com.practical.billViewService;
 
 public class Calculator {
 
@@ -9,10 +9,10 @@ public class Calculator {
 		
 	}
 	
-	public Calculator(User _myUser, Plan _myPlan) {
+	public Calculator(User user, Plan plan) {
 		// TODO Auto-generated constructor stub
-		this.myUser=myUser;
-		this.myPlan=_myPlan;
+		this.myUser=user;
+		this.myPlan=plan;
 	}
 	
 	public double calculatorSum(){

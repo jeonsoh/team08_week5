@@ -24,13 +24,8 @@ public class CalculatorTest extends TestCase {
 		double miniBill = calculator.calculateMinutesBill();
 		double lineBill = calculator.calculateLineBill();
 		
-		System.out.println( myPlan.getBasicMontlyRate());
-		System.out.println(miniBill);
-		System.out.println(lineBill);
 		
 		double totalBill = myPlan.getBasicMontlyRate()+ miniBill+lineBill;
-		System.out.println(totalBill);
-		System.out.println(sum);
 		
 		assertEquals(totalBill, sum);
 		 

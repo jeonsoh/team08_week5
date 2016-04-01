@@ -14,8 +14,9 @@ import junit.framework.TestSuite;
 public class CalculatorTest extends TestCase {
 	
 	 public void testCalculator(){
-		User myUser = new User("Gold",2000,3,"Gill-Dong");
 		Plan myPlan = new Gold();
+		User myUser = new User(myPlan,2000,3,"Gill-Dong");
+		
 		Calculator calculator =new Calculator(myUser, myPlan);
 		
 		

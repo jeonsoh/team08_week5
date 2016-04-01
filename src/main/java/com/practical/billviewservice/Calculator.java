@@ -40,7 +40,7 @@ public class Calculator {
 	}
 	
 	public String processCalculator(){
-		StringBuffer buf = new StringBuffer();
+		StringBuilder buf = new StringBuilder();
 		buf.append("계산과정 :");
 		int lineNum = this.myUser.getMyLineNum() ;
 		

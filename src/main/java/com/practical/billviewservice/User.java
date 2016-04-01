@@ -23,7 +23,7 @@ public class User {
 		this.myPlantype = myPlantype;
 	}
 
-	public int getMyMiniUsed() {
+	public int getMyinuteUsed() {
 		return myMiniUsed;
 	}
 

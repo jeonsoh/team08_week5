@@ -19,11 +19,22 @@ public class BillViewService {
 	}
 	
 	public void showUser(){
-		Logger.getLogger("User Message");
+		System.out.println("[User정보]");
+		System.out.println("Name : "+this.myUser.getMyName());
+		System.out.println("Plan : "+this.myUser.getMyPlantype());
+		System.out.println("Minit Used : "+this.myUser.getMyinuteUsed());
+		System.out.println("Line Number : "+this.myUser.getMyLineNum());
+		
 	}
 	
 	public void showPlan(){
-		Logger.getLogger("Plan Message");
+		System.out.println("[Plan 정보]");
+		System.out.println("Additional Line Rate : "+this.myPlan.getAdditional_Line_Rate());
+		System.out.println("Basic Montly Rate : "+this.myPlan.getBasic_Montly_Rate());
+		System.out.println("Family Discount Basic "+this.myPlan.getFamily_discount_Basic());
+		System.out.println("Family Discount Basic"+this.myPlan.getFamily_discount_Basic_Rate());
+		System.out.println("Minutes 대한 비용 "+this.myPlan.getIncluded_Minutes());
+		System.out.println("추가라인에 대한 비용 "+this.myPlan.getRate_Per_Excess_Minute());
 	}
 	
 	public void showCalculator(){

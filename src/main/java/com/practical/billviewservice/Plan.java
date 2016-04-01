@@ -2,12 +2,12 @@ package com.practical.billviewservice;
 
 public class Plan {
 
-	protected double Basic_Montly_Rate;
-	protected int Included_Minutes;
-	protected double Rate_Per_Excess_Minute;
-	protected double Additional_Line_Rate;
-	protected int Family_discount_Basic;
-	protected double Family_discount_Basic_Rate;
+	private double Basic_Montly_Rate;
+	private int Included_Minutes;
+	private double Rate_Per_Excess_Minute;
+	private double Additional_Line_Rate;
+	private int Family_discount_Basic;
+	private double Family_discount_Basic_Rate;
 	
 	public double getBasic_Montly_Rate() {
 		return Basic_Montly_Rate;

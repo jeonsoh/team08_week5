@@ -23,7 +23,7 @@ public class BillViewService {
 	public void showUser(){
 		log = Logger.getLogger("My Logger");
 
-		StringBuffer userbuf = new StringBuffer();
+		StringBuilder userbuf = new StringBuilder();
 		userbuf.append("\n[User정보]\n");
 		userbuf.append("Name : "+this.myUser.getMyName()+"\n");
 		
@@ -41,7 +41,7 @@ public class BillViewService {
 	}
 	
 	public void showPlan(){
-		StringBuffer planbuf = new StringBuffer();
+		StringBuilder planbuf = new StringBuilder();
 		planbuf.append("\n[User의 Plan 정보]\n");
 		planbuf.append("Basic Montly Rate : "+this.myPlan.getBasicMontlyRate()+"\n");
 		planbuf.append("Include Minutes : "+this.myPlan.getIncludedMinutes()+"\n");
@@ -54,7 +54,7 @@ public class BillViewService {
 	}
 	
 	public void showCalculator(){
-		StringBuffer calbuf = new StringBuffer();
+		StringBuilder calbuf = new StringBuilder();
 		calbuf.append("\n[사용자의 라인에 대한 비용 ]\n");
 		calbuf.append(this.myCalculator.calculateLineBill()+"\n");
 		calbuf.append("[사용자의 통화량에 대한 비용 ]\n");
@@ -66,7 +66,7 @@ public class BillViewService {
 		}
 	
 	public void showTotalCalculator(){
-		StringBuffer totalbuf = new StringBuffer();
+		StringBuilder totalbuf = new StringBuilder();
 		totalbuf.append("\n[ 총 비용 ]\n");
 		totalbuf.append(this.myCalculator.calculatorSum()+"\n");
 

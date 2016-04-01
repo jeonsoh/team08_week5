@@ -1,7 +1,6 @@
 package com.practical.billviewservice;
 
-interface Plan {
-	
+interface Plan{	
 	public double getBasicMontlyRate();
 	public int getIncludedMinutes();
 	public double getRatePerExcessMinute();

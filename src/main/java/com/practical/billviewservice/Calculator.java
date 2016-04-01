@@ -7,8 +7,10 @@ public class Calculator {
 	private double total;
 	private double lineBill;
 	private double minutesBill;
-	private int family_Discout_Myline;
-	private int added_myline;
+	private int familyDicountMyLine;
+	private int addedMyLine;
+	
+	
 	
 	private Calculator(){
 		
@@ -20,13 +22,71 @@ public class Calculator {
 	}
 	
 	public double calculatorSum(){
+		double totalSum=0;
+		int lineNum =this.myUser.getMyLineNum() ;
+		if(lineNum > 4){
+			this.familyDicountMyLine=lineNum -3;
+		}else if(lineNum > 1){
+			this.addedMyLine = lineNum-1;
+		}
+		if(this.myPlan instanceof Gold){
+			if(lineNum != 0 )
+				totalSum +=49.5;
+			if(lineNum > 4){
+				totalSum +=addedMyLine*14.5;
+			}
+			if(lineNum > 3){
+				
+			}
+			
+		}else if(this.myPlan instanceof Silver){
+			if(lineNum !=0){
+				
+			}
+				
+		}
+		
 	
 		return 1.0;
 	}
 	
 	public String processCalculator(){
-		
-		return "Hello";
+		StringBuffer buf = new StringBuffer();
+		buf.append("계산과정 :");
+		int lineNum =this.myUser.getMyLineNum() ;
+		if(lineNum > 4){
+			this.familyDicountMyLine=lineNum -3;
+		}else if(lineNum > 1){
+			this.addedMyLine = lineNum-1;
+		}
+		if(this.myPlan instanceof Gold){
+			
+			if(lineNum >0)
+				buf.append("기본비용:49.95 ");
+			else
+				return "0";
+			
+			if(lineNum> 1){
+				buf.append(" + 추가라인비용("+addedMyLine+"*14.5)");
+			}
+			if(lineNum >= 4){
+				buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
+			}
+			buf.append(" = "+this.calculatorSum());	
+		}else if(this.myPlan instanceof Silver){
+			if(lineNum >0)
+				buf.append("기본비용:29.95 ");
+			else
+				return "0";
+			
+			if(lineNum> 1){
+				buf.append(" + 추가라인비용("+addedMyLine+"*21.50)");
+			}
+			if(lineNum >= 4){
+				buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
+			}
+		}
+		return buf.toString();
 	}
 	
 	public double calculateMinutesBill(){

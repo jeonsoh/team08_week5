@@ -1,30 +1,30 @@
 package com.practical.billviewservice;
 
 public class Gold implements Plan{
-	private double basicMontlyRate = 49.95;
-	private int includedMinutes = 1000;
-	private double ratePerExcessMinute = 0.45;
-	private double additionalLineRate = 14.50;
-	private int familyDiscountBasic =3;
-	private double familyDiscountBasicRate = 5.00;
+	private static final double  BASICMONTLYRATE = 49.95;
+	private static final int INCLUDEDMINUTES = 1000;
+	private static final double RATEPEREXCESSMINUTE = 0.45;
+	private static final double ADDITIONALLINERATE = 14.50;
+	private static final int FAMILYDISCOUNTBASIC =3;
+	private static final double FAMILYDISCOUNTBASICRATE = 5.00;
 	
 	public double getBasicMontlyRate() {
-		return basicMontlyRate;
+		return BASICMONTLYRATE;
 	}	
 	public int getIncludedMinutes() {
-		return includedMinutes;
+		return INCLUDEDMINUTES;
 	}	
 	public double getRatePerExcessMinute() {
-		return ratePerExcessMinute;
+		return RATEPEREXCESSMINUTE;
 	}	
 	public double getAdditionalLineRate() {
-		return additionalLineRate;
+		return ADDITIONALLINERATE;
 	}	
 	public int getFamilyDiscountBasic() {
-		return familyDiscountBasic;
+		return FAMILYDISCOUNTBASIC;
 	}	
 	public double getFamilyDiscountBasicRate() {
-		return familyDiscountBasicRate;
+		return FAMILYDISCOUNTBASICRATE;
 	}
 
 }

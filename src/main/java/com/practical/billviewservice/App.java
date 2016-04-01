@@ -10,8 +10,10 @@ public class App {
 		
 	}
     public static void main( String[] args ){
+    	int usedMiniute = 2000;
+    	int lineNumber = 3;
     	Plan myPlan = new Gold();
-    	User myUser = new User(myPlan,2000,3,"Hong-Gill-Dong");
+    	User myUser = new User(myPlan,usedMiniute,lineNumber,"Hong-Gill-Dong");
     	
     	Calculator myCalculator = new Calculator(myUser,myPlan);
     	BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);

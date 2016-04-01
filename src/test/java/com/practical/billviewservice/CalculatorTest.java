@@ -14,8 +14,11 @@ import junit.framework.TestCase;
 public class CalculatorTest extends TestCase {
 	
 	 public void testCalculator(){
+		 
+		int usedMiniute = 2000;
+	    int lineNumber = 3;
 		Plan myPlan = new Gold();
-		User myUser = new User(myPlan,2000,3,"Gill-Dong");
+		User myUser = new User(myPlan,usedMiniute,lineNumber,"Gill-Dong");
 		
 		Calculator calculator =new Calculator(myUser, myPlan);
 		

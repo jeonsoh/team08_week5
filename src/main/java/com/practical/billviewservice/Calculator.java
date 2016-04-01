@@ -30,39 +30,7 @@ public class Calculator {
 	
 	public String processCalculator(){
 		StringBuffer buf = new StringBuffer();
-		buf.append("계산과정 :");
-		int lineNum =this.myUser.getMyLineNum() ;
-		if(lineNum > 4){
-			this.familyDicountMyLine=lineNum -3;
-		}else if(lineNum > 1){
-			this.addedMyLine = lineNum-1;
-		}
-		if(this.myPlan instanceof Gold){
 			
-			if(lineNum >0)
-				buf.append("기본비용:49.95 ");
-			else
-				return "0";
-			
-			if(lineNum> 1){
-				buf.append(" + 추가라인비용("+addedMyLine+"*14.5)");
-			}
-
-		}else if(this.myPlan instanceof Silver){
-			if(lineNum >0)
-				buf.append("기본비용:29.95 ");
-			else
-				return "0";
-			
-			if(lineNum> 1){
-				buf.append(" + 추가라인비용("+addedMyLine+"*21.50)");
-			}
-		}
-		
-		if(lineNum >= 4){
-			buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
-		}
-		buf.append(" = "+this.calculatorSum());	
 	
 	
 		return buf.toString();

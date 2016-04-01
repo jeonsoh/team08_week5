@@ -1,12 +1,12 @@
 package com.practical.billviewservice;
 
 public class Silver implements Plan{
-	private double basicMontlyRate = 29.95;
-	private int includedMinutes = 500;
-	private double ratePerExcessMinute = 0.54;
-	private double additionalLineRate = 21.50;
-	private int familyDiscountBasic =3;
-	private double familyDiscountBasicRate = 5.00;
+	private static final double basicMontlyRate = 29.95;
+	private static final int includedMinutes = 500;
+	private static final double ratePerExcessMinute = 0.54;
+	private static final double additionalLineRate = 21.50;
+	private static final int familyDiscountBasic =3;
+	private static final double familyDiscountBasicRate = 5.00;
 	
 	public double getBasicMontlyRate() {
 		return basicMontlyRate;

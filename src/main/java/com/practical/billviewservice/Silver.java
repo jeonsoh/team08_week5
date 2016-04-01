@@ -1,6 +1,6 @@
 package com.practical.billviewservice;
 
-public class Silver extends Plan{
+public class Silver implements Plan{
 	private double Basic_Montly_Rate = 29.95;
 	private int Included_Minutes = 500;
 	private double Rate_Per_Excess_Minute = 0.54;

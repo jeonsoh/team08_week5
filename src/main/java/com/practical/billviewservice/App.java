@@ -14,7 +14,6 @@ public class App {
     	User myUser = new User(myPlan,2000,3,"Gill-Dong");
     	
     	Calculator myCalculator = new Calculator(myUser,myPlan);
-    	
     	BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
     	billviewsystem.showUser();
     	billviewsystem.showPlan();

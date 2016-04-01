@@ -4,6 +4,11 @@ public class Calculator {
 
 	private User myUser;
 	private Plan myPlan;
+	private double total;
+	private double lineBill;
+	private double minutesBill;
+	private int family_Discout_Myline;
+	private int added_myline;
 	
 	private Calculator(){
 		

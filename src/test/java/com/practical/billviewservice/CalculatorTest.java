@@ -5,9 +5,9 @@ import com.practical.billviewservice.Gold;
 import com.practical.billviewservice.Plan;
 import com.practical.billviewservice.User;
 
-import junit.framework.Test;
+
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
 
 
 
@@ -25,10 +25,9 @@ public class CalculatorTest extends TestCase {
 		double lineBill = calculator.calculateLineBill();
 		
 		
+		double totalBill = myPlan.getBasicMontlyRate()+ miniBill+lineBill;
 		
-//		assertEquals(1.0, sum);
-//		assertEquals(2.0, miniBill);
-//		assertEquals(3.0, lineBill);
+		assertEquals(totalBill, sum);
 		 
 	 }
 }

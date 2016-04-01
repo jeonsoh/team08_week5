@@ -34,7 +34,7 @@ public class Calculator {
 	
 	public double calculatorSum(){
 	
-		this.total = this.myPlan.getBasicMontlyRate() + lineBill + minutesBill;
+		this.total = this.myPlan.getBasicMontlyRate() + this.calculateLineBill() + this.calculateMinutesBill();
 		return total;
 
 	}

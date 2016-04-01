@@ -22,10 +22,10 @@ public class Calculator {
 	}
 	
 	public double calculatorSum(){
-		double totalSum=0.00;
-		
 	
-		return totalSum;
+		this.total = lineBill+minutesBill;
+		return total;
+
 	}
 	
 	public String processCalculator(){
@@ -47,7 +47,7 @@ public class Calculator {
 			if(lineNum> 1){
 				buf.append(" + 추가라인비용("+addedMyLine+"*14.5)");
 			}
-			
+
 		}else if(this.myPlan instanceof Silver){
 			if(lineNum >0)
 				buf.append("기본비용:29.95 ");
@@ -57,12 +57,14 @@ public class Calculator {
 			if(lineNum> 1){
 				buf.append(" + 추가라인비용("+addedMyLine+"*21.50)");
 			}
-			
 		}
+		
 		if(lineNum >= 4){
 			buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
 		}
 		buf.append(" = "+this.calculatorSum());	
+	
+	
 		return buf.toString();
 	}
 	

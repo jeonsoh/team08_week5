@@ -15,6 +15,7 @@ public class Calculator {
 	}
 	
 	public Calculator(User user, Plan plan) {
+		// TODO Auto-generated constructor stub
 		this.myUser=user;
 		this.myPlan=plan;
 	}
@@ -30,9 +31,9 @@ public class Calculator {
 	}
 	
 	public double calculateMinutesBill(){
-		int useMinutes = myUser.getMyMiniUsed();
+		int useMinutes = myUser.getMyinuteUsed();
 		
-		double basicMonthlyRate = myPlan.Basic_Montly_Rate;
+		double basicMonthlyRate = myPlan.getBasic_Montly_Rate();
 		int includedMinutes = myPlan.getIncluded_Minutes();
 		double excessMinutesRate = myPlan.getRate_Per_Excess_Minute();
 		

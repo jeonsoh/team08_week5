@@ -21,12 +21,12 @@ public class Calculator {
 			this.familyDiscountMyLine = 0;
 			this.addedMyLine = 0;
 		}
-		else if(user.getMyLineNum() <= plan.getFamily_discount_Basic()){
+		else if(user.getMyLineNum() <= plan.getFamilyDiscountBasic()){
 			this.familyDiscountMyLine = 0;
 			this.addedMyLine = user.getMyLineNum() -1;
 		}
-		else if(user.getMyLineNum() > plan.getFamily_discount_Basic()){
-			this.familyDiscountMyLine = user.getMyLineNum() - plan.getFamily_discount_Basic();
+		else if(user.getMyLineNum() > plan.getFamilyDiscountBasic()){
+			this.familyDiscountMyLine = user.getMyLineNum() - plan.getFamilyDiscountBasic();
 			this.addedMyLine = user.getMyLineNum() - this.familyDiscountMyLine - 1;
 		}
 		 
@@ -34,7 +34,7 @@ public class Calculator {
 	
 	public double calculatorSum(){
 	
-		this.total = this.myPlan.getBasic_Montly_Rate() + lineBill + minutesBill;
+		this.total = this.myPlan.getBasicMontlyRate() + lineBill + minutesBill;
 		return total;
 
 	}
@@ -45,20 +45,20 @@ public class Calculator {
 		int lineNum = this.myUser.getMyLineNum() ;
 		
 		if(lineNum > 0){
-			buf.append("기본비용: "+this.myPlan.getBasic_Montly_Rate());
+			buf.append("기본비용: "+this.myPlan.getBasicMontlyRate());
 		} // 기본 비용 계산
 		
 		if(addedMyLine > 0){
-			buf.append(" + 추가라인비용("+addedMyLine+"*"+this.myPlan.getAdditional_Line_Rate()+")");
+			buf.append(" + 추가라인비용("+addedMyLine+"*"+this.myPlan.getAdditionalLineRate()+")");
 		} // 가족 할인이 적용되지 않은 추가 라인 비용 계산
 		
 		if(familyDiscountMyLine > 0){
-			buf.append(" + 가족 할인 라인 비용(" + familyDiscountMyLine +"*"+ this.myPlan.getFamily_discount_Basic_Rate() + ")");
+			buf.append(" + 가족 할인 라인 비용(" + familyDiscountMyLine +"*"+ this.myPlan.getFamilyDiscountBasicRate() + ")");
 		} // 가족 할인이 적용된 추가 라인 비용 계산
 		
-		if(this.myUser.getMyinuteUsed() > this.myPlan.getIncluded_Minutes()){
-			int excess = this.myUser.getMyinuteUsed() - this.myPlan.getIncluded_Minutes();
-			buf.append(" + 초과 시간에 대한 비용(" + excess +"*" + this.myPlan.getRate_Per_Excess_Minute()+")");
+		if(this.myUser.getMyinuteUsed() > this.myPlan.getIncludedMinutes()){
+			int excess = this.myUser.getMyinuteUsed() - this.myPlan.getIncludedMinutes();
+			buf.append(" + 초과 시간에 대한 비용(" + excess +"*" + this.myPlan.getRatePerExcessMinute()+")");
 		} // 초과 시간에 대한 비용
 
 		buf.append(" = "+this.calculatorSum());	
@@ -69,8 +69,8 @@ public class Calculator {
 	public double calculateMinutesBill(){
 		int useMinutes = myUser.getMyinuteUsed();
 		
-		int includedMinutes = myPlan.getIncluded_Minutes();
-		double excessMinutesRate = myPlan.getRate_Per_Excess_Minute();
+		int includedMinutes = myPlan.getIncludedMinutes();
+		double excessMinutesRate = myPlan.getRatePerExcessMinute();
 		
 		if( useMinutes <= includedMinutes ){
 			this.minutesBill = 0;
@@ -84,8 +84,8 @@ public class Calculator {
 	}
 	
 	public double calculateLineBill(){
-		double additionallinerate = myPlan.getAdditional_Line_Rate();
-		double familydiscountrate = myPlan.getFamily_discount_Basic_Rate();
+		double additionallinerate = myPlan.getAdditionalLineRate();
+		double familydiscountrate = myPlan.getFamilyDiscountBasicRate();
 		
 		lineBill = (this.addedMyLine * additionallinerate) + (this.familyDiscountMyLine * familydiscountrate);
 		

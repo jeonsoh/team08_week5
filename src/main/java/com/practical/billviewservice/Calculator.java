@@ -73,6 +73,7 @@ public class Calculator {
 				buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
 			}
 			buf.append(" = "+this.calculatorSum());	
+			
 		}else if(this.myPlan instanceof Silver){
 			if(lineNum >0)
 				buf.append("기본비용:29.95 ");

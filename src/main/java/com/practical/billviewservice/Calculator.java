@@ -21,13 +21,13 @@ public class Calculator {
 	}
 	
 	public double calculatorSum(){
-	
-		return 1.0;
+		this.total = this.minutesBill + this.lineBill;
+		return total;
 	}
 	
 	public String processCalculator(){
-		
-		return "Hello";
+	
+		return "hello";
 	}
 	
 	public double calculateMinutesBill(){
@@ -37,9 +37,11 @@ public class Calculator {
 		int includedMinutes = myPlan.getIncluded_Minutes();
 		double excessMinutesRate = myPlan.getRate_Per_Excess_Minute();
 		
+		// no excess bill 
 		if( useMinutes <= includedMinutes ){
 			this.minutesBill = basicMonthlyRate;
 		}
+		// pay excess bill
 		else{
 			int excess = useMinutes - includedMinutes;
 			this.minutesBill = basicMonthlyRate + ( excess * excessMinutesRate );

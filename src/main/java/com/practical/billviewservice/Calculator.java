@@ -20,12 +20,10 @@ public class Calculator {
 		if(user.getMyLineNum() == 1){
 			this.familyDiscountMyLine = 0;
 			this.addedMyLine = 0;
-		}
-		else if(user.getMyLineNum() <= plan.getFamilyDiscountBasic()){
+		}else if(user.getMyLineNum() <= plan.getFamilyDiscountBasic()){
 			this.familyDiscountMyLine = 0;
 			this.addedMyLine = user.getMyLineNum() -1;
-		}
-		else if(user.getMyLineNum() > plan.getFamilyDiscountBasic()){
+		}else if(user.getMyLineNum() > plan.getFamilyDiscountBasic()){
 			this.familyDiscountMyLine = user.getMyLineNum() - plan.getFamilyDiscountBasic();
 			this.addedMyLine = user.getMyLineNum() - this.familyDiscountMyLine - 1;
 		}
@@ -78,8 +76,7 @@ public class Calculator {
 		
 		if( useMinutes <= includedMinutes ){
 			this.minutesBill = 0;
-		}
-		else{
+		}else{
 			int excess = useMinutes - includedMinutes;
 			this.minutesBill = excess * excessMinutesRate;
 		}

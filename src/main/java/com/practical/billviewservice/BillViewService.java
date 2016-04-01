@@ -10,7 +10,7 @@ public class BillViewService {
 	private Logger log;
 	
 	private BillViewService(){
-		log = Logger.getLogger("logger");
+		
 	}
 
 	BillViewService(User user, Plan plan, Calculator caculator)
@@ -21,6 +21,7 @@ public class BillViewService {
 	}
 	
 	public void showUser(){
+		log = Logger.getLogger("My Logger");
 		log.log(Level.INFO, "\n[User정보]");
 		log.log(Level.INFO, "Name : "+this.myUser.getMyName());
 		

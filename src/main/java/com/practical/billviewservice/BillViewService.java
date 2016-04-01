@@ -19,29 +19,41 @@ public class BillViewService {
 	}
 	
 	public void showUser(){
-		System.out.println("[User정보]");
+		System.out.println("\n[User정보]\n");
 		System.out.println("Name : "+this.myUser.getMyName());
-		System.out.println("Plan : "+this.myUser.getMyPlantype());
+		
+		if(this.myUser.getMyPlantype() instanceof Gold){
+			System.out.println("Plan : Gold");
+		}else if(this.myUser.getMyPlantype() instanceof Silver){
+			System.out.println("Plan : Silver");
+		}
+		
 		System.out.println("Minit Used : "+this.myUser.getMyinuteUsed());
 		System.out.println("Line Number : "+this.myUser.getMyLineNum());
 		
 	}
 	
 	public void showPlan(){
-		System.out.println("[Plan 정보]");
+		System.out.println("\n[User의 Plan 정보]\n");
 		System.out.println("Additional Line Rate : "+this.myPlan.getAdditional_Line_Rate());
 		System.out.println("Basic Montly Rate : "+this.myPlan.getBasic_Montly_Rate());
-		System.out.println("Family Discount Basic "+this.myPlan.getFamily_discount_Basic());
-		System.out.println("Family Discount Basic"+this.myPlan.getFamily_discount_Basic_Rate());
-		System.out.println("Minutes 대한 비용 "+this.myPlan.getIncluded_Minutes());
-		System.out.println("추가라인에 대한 비용 "+this.myPlan.getRate_Per_Excess_Minute());
+		System.out.println("Family Discount Basic : "+this.myPlan.getFamily_discount_Basic());
+		System.out.println("Family Discount Basic Rate :"+this.myPlan.getFamily_discount_Basic_Rate());
+		System.out.println("Include Minutes : "+this.myPlan.getIncluded_Minutes());
+		System.out.println("Rate Per Excess Minute :"+this.myPlan.getRate_Per_Excess_Minute());
 	}
 	
 	public void showCalculator(){
-		Logger.getLogger("Calculator Message");
+		System.out.println("\n[사용자의 추가 사용한 라인에 대한 비용 ]\n");
+		System.out.println(this.myCalculator.calculateLineBill());
+		System.out.println("[사용자의 추가 사용한 시간에 대한 비용 ]");
+		System.out.println(this.myCalculator.calculateMinutesBill());
+		System.out.println("[ 사용자의 비용 계산 과정 ]");
+		System.out.println(this.myCalculator.processCalculator());
 	}
 	
 	public void showTotalCalculator(){
-		Logger.getLogger("Total Calculator Message");
+		System.out.println("\n[ 총 비용 ]\n");
+		System.out.println(this.myCalculator.calculatorSum());
 	}
 }

@@ -1,11 +1,13 @@
 package com.practical.billviewservice;
 
 import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class BillViewService {
 	private User myUser;
 	private Plan myPlan;
 	private Calculator myCalculator;
+	private Logger log;
 	
 	private BillViewService(){
 		
@@ -19,41 +21,42 @@ public class BillViewService {
 	}
 	
 	public void showUser(){
-		System.out.println("\n[User정보]\n");
-		System.out.println("Name : "+this.myUser.getMyName());
+		log = Logger.getLogger("My Logger");
+		log.log(Level.INFO, "\n[User정보]");
+		log.log(Level.INFO, "Name : "+this.myUser.getMyName());
 		
 		if(this.myUser.getMyPlantype() instanceof Gold){
-			System.out.println("Plan : Gold");
+			log.log(Level.INFO, "Plan : Gold");
 		}else if(this.myUser.getMyPlantype() instanceof Silver){
-			System.out.println("Plan : Silver");
+			log.log(Level.INFO, "Plan : Silver");
 		}
 		
-		System.out.println("Minit Used : "+this.myUser.getMyinuteUsed());
-		System.out.println("Line Number : "+this.myUser.getMyLineNum());
+		log.log(Level.INFO, "Minit Used : "+this.myUser.getMyinuteUsed());
+		log.log(Level.INFO, "Line Number : "+this.myUser.getMyLineNum());
 		
 	}
 	
 	public void showPlan(){
-		System.out.println("\n[User의 Plan 정보]\n");
-		System.out.println("Additional Line Rate : "+this.myPlan.getAdditional_Line_Rate());
-		System.out.println("Basic Montly Rate : "+this.myPlan.getBasic_Montly_Rate());
-		System.out.println("Family Discount Basic : "+this.myPlan.getFamily_discount_Basic());
-		System.out.println("Family Discount Basic Rate :"+this.myPlan.getFamily_discount_Basic_Rate());
-		System.out.println("Include Minutes : "+this.myPlan.getIncluded_Minutes());
-		System.out.println("Rate Per Excess Minute :"+this.myPlan.getRate_Per_Excess_Minute());
+		log.log(Level.INFO, "\n[User의 Plan 정보]");
+		log.log(Level.INFO, "Basic Montly Rate : "+this.myPlan.getBasic_Montly_Rate());
+		log.log(Level.INFO, "Include Minutes : "+this.myPlan.getIncluded_Minutes());
+		log.log(Level.INFO, "Additional Line Rate : "+this.myPlan.getAdditional_Line_Rate());
+		log.log(Level.INFO, "Rate Per Excess Minute :"+this.myPlan.getRate_Per_Excess_Minute());
+		log.log(Level.INFO, "Family Discount Basic : "+this.myPlan.getFamily_discount_Basic());
+		log.log(Level.INFO, "Family Discount Basic Rate :"+this.myPlan.getFamily_discount_Basic_Rate());
 	}
 	
 	public void showCalculator(){
-		System.out.println("\n[사용자의 추가 사용한 라인에 대한 비용 ]\n");
-		System.out.println(this.myCalculator.calculateLineBill());
-		System.out.println("[사용자의 추가 사용한 시간에 대한 비용 ]");
-		System.out.println(this.myCalculator.calculateMinutesBill());
-		System.out.println("[ 사용자의 비용 계산 과정 ]");
-		System.out.println(this.myCalculator.processCalculator());
+		log.log(Level.INFO, "\n[사용자의 라인에 대한 비용 ]");
+		log.log(Level.INFO, this.myCalculator.calculateLineBill()+"\n");
+		log.log(Level.INFO, "[사용자의 통화량에 대한 비용 ]");
+		log.log(Level.INFO, this.myCalculator.calculateMinutesBill()+"\n");
+		log.log(Level.INFO, "[ 사용자의 비용 계산 과정 ]");
+		log.log(Level.INFO, this.myCalculator.processCalculator()+"\n");
 	}
 	
 	public void showTotalCalculator(){
-		System.out.println("\n[ 총 비용 ]\n");
-		System.out.println(this.myCalculator.calculatorSum());
+		log.log(Level.INFO, "\n[ 총 비용 ]");
+		log.log(Level.INFO, this.myCalculator.calculatorSum()+"\n");
 	}
 }

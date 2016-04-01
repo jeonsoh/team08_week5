@@ -37,13 +37,16 @@ public class BillViewService {
 	}
 	
 	public void showPlan(){
-		log.log(Level.INFO, "\n[User의 Plan 정보]");
-		log.log(Level.INFO, "Basic Montly Rate : "+this.myPlan.getBasic_Montly_Rate());
-		log.log(Level.INFO, "Include Minutes : "+this.myPlan.getIncluded_Minutes());
-		log.log(Level.INFO, "Additional Line Rate : "+this.myPlan.getAdditional_Line_Rate());
-		log.log(Level.INFO, "Rate Per Excess Minute :"+this.myPlan.getRate_Per_Excess_Minute());
-		log.log(Level.INFO, "Family Discount Basic : "+this.myPlan.getFamily_discount_Basic());
-		log.log(Level.INFO, "Family Discount Basic Rate :"+this.myPlan.getFamily_discount_Basic_Rate());
+		StringBuffer planbuf = new StringBuffer();
+		planbuf.append("\n[User의 Plan 정보]\n");
+		planbuf.append("Basic Montly Rate : "+this.myPlan.getBasic_Montly_Rate()+"\n");
+		planbuf.append("Include Minutes : "+this.myPlan.getIncluded_Minutes()+"\n");
+		planbuf.append("Additional Line Rate : "+this.myPlan.getAdditional_Line_Rate()+"\n");
+		planbuf.append("Rate Per Excess Minute :"+this.myPlan.getRate_Per_Excess_Minute()+"\n");
+		planbuf.append("Family Discount Basic : "+this.myPlan.getFamily_discount_Basic()+"\n");
+		planbuf.append("Family Discount Basic Rate :"+this.myPlan.getFamily_discount_Basic_Rate()+"\n");
+		
+		log.log(Level.INFO, planbuf.toString());
 	}
 	
 	public void showCalculator(){

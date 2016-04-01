@@ -30,9 +30,22 @@ public class Calculator {
 		return "Hello";
 	}
 	
-	public double calculateMinutesBill()
-	{
-		return 2.0;
+	public double calculateMinutesBill(){
+		int useMinutes = myUser.getMyMiniUsed();
+		
+		double basicMonthlyRate = myPlan.Basic_Montly_Rate;
+		int includedMinutes = myPlan.getIncluded_Minutes();
+		double excessMinutesRate = myPlan.getRate_Per_Excess_Minute();
+		
+		if( useMinutes <= includedMinutes ){
+			this.minutesBill = basicMonthlyRate;
+		}
+		else{
+			int excess = useMinutes - includedMinutes;
+			this.minutesBill = basicMonthlyRate + ( excess * excessMinutesRate );
+		}
+		
+		return this.minutesBill;
 	}
 	
 	public double calculateLineBill(){

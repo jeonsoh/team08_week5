@@ -1,6 +1,6 @@
 package com.practical.billviewservice;
 
-public class Gold extends Plan{
+public class Gold implements Plan{
 	private double Basic_Montly_Rate = 49.95;
 	private int Included_Minutes = 1000;
 	private double Rate_Per_Excess_Minute = 0.45;

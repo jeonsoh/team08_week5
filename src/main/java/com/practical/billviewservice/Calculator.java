@@ -15,7 +15,6 @@ public class Calculator {
 	}
 	
 	public Calculator(User user, Plan plan) {
-		// TODO Auto-generated constructor stub
 		this.myUser=user;
 		this.myPlan=plan;
 	}

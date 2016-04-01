@@ -8,7 +8,6 @@ public class User {
 	private String myName;
 	
 	public User(Plan myPlan, int minitUsed, int lineNum, String name) {
-		// TODO Auto-generated constructor stub
 		this.myPlantype=myPlan;
 		this.myMiniUsed=minitUsed;
 		this.myLineNum=lineNum;

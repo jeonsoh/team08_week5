@@ -7,14 +7,13 @@ public class BillViewService {
 	private User myUser;
 	private Plan myPlan;
 	private Calculator myCalculator;
-	private Logger log;
+	private static Logger log;
 	
 	private BillViewService(){
 		
 	}
 
-	BillViewService(User user, Plan plan, Calculator caculator)
-	{
+	BillViewService(User user, Plan plan, Calculator caculator){
 		this.myUser= user;
 		this.myCalculator= caculator;
 		this.myPlan= plan;
@@ -63,7 +62,7 @@ public class BillViewService {
 		calbuf.append(this.myCalculator.processCalculator()+"\n");
 
 		log.log(Level.INFO, calbuf.toString());
-		}
+	}
 	
 	public void showTotalCalculator(){
 		StringBuilder totalbuf = new StringBuilder();

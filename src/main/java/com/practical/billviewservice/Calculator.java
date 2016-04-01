@@ -46,20 +46,24 @@ public class Calculator {
 		
 		if(lineNum > 0){
 			buf.append("기본비용: "+this.myPlan.getBasicMontlyRate());
-		} // 기본 비용 계산
+		} 
+		// 기본 비용 계산
 		
 		if(addedMyLine > 0){
 			buf.append(" + 추가라인비용("+addedMyLine+"*"+this.myPlan.getAdditionalLineRate()+")");
-		} // 가족 할인이 적용되지 않은 추가 라인 비용 계산
+		} 
+		// 가족 할인이 적용되지 않은 추가 라인 비용 계산
 		
 		if(familyDiscountMyLine > 0){
 			buf.append(" + 가족 할인 라인 비용(" + familyDiscountMyLine +"*"+ this.myPlan.getFamilyDiscountBasicRate() + ")");
-		} // 가족 할인이 적용된 추가 라인 비용 계산
+		} 
+		// 가족 할인이 적용된 추가 라인 비용 계산
 		
 		if(this.myUser.getMyinuteUsed() > this.myPlan.getIncludedMinutes()){
 			int excess = this.myUser.getMyinuteUsed() - this.myPlan.getIncludedMinutes();
 			buf.append(" + 초과 시간에 대한 비용(" + excess +"*" + this.myPlan.getRatePerExcessMinute()+")");
-		} // 초과 시간에 대한 비용
+		} 
+		// 초과 시간에 대한 비용
 
 		buf.append(" = "+this.calculatorSum());	
 		

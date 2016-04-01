@@ -22,18 +22,22 @@ public class BillViewService {
 	
 	public void showUser(){
 		log = Logger.getLogger("My Logger");
-		log.log(Level.INFO, "\n[User정보]");
-		log.log(Level.INFO, "Name : "+this.myUser.getMyName());
+
+		StringBuffer userbuf = new StringBuffer();
+		userbuf.append("\n[User정보]\n");
+		userbuf.append("Name : "+this.myUser.getMyName()+"\n");
 		
 		if(this.myUser.getMyPlantype() instanceof Gold){
-			log.log(Level.INFO, "Plan : Gold");
+			userbuf.append("Plan : Gold\n");
 		}else if(this.myUser.getMyPlantype() instanceof Silver){
-			log.log(Level.INFO, "Plan : Silver");
+			userbuf.append("Plan : Silver\n");
 		}
 		
-		log.log(Level.INFO, "Minit Used : "+this.myUser.getMyinuteUsed());
-		log.log(Level.INFO, "Line Number : "+this.myUser.getMyLineNum());
-		
+		userbuf.append("Minit Used : "+this.myUser.getMyinuteUsed()+"\n");
+		userbuf.append("Line Number : "+this.myUser.getMyLineNum()+"\n");
+	
+		log.log(Level.INFO,userbuf.toString());
+
 	}
 	
 	public void showPlan(){
@@ -50,16 +54,22 @@ public class BillViewService {
 	}
 	
 	public void showCalculator(){
-		log.log(Level.INFO, "\n[사용자의 라인에 대한 비용 ]");
-		log.log(Level.INFO, this.myCalculator.calculateLineBill()+"\n");
-		log.log(Level.INFO, "[사용자의 통화량에 대한 비용 ]");
-		log.log(Level.INFO, this.myCalculator.calculateMinutesBill()+"\n");
-		log.log(Level.INFO, "[ 사용자의 비용 계산 과정 ]");
-		log.log(Level.INFO, this.myCalculator.processCalculator()+"\n");
-	}
+		StringBuffer calbuf = new StringBuffer();
+		calbuf.append("\n[사용자의 라인에 대한 비용 ]\n");
+		calbuf.append(this.myCalculator.calculateLineBill()+"\n");
+		calbuf.append("[사용자의 통화량에 대한 비용 ]\n");
+		calbuf.append(this.myCalculator.calculateMinutesBill()+"\n");
+		calbuf.append("[ 사용자의 비용 계산 과정 ]\n");
+		calbuf.append(this.myCalculator.processCalculator()+"\n");
+
+		log.log(Level.INFO, calbuf.toString());
+		}
 	
 	public void showTotalCalculator(){
-		log.log(Level.INFO, "\n[ 총 비용 ]");
-		log.log(Level.INFO, this.myCalculator.calculatorSum()+"\n");
+		StringBuffer totalbuf = new StringBuffer();
+		totalbuf.append("\n[ 총 비용 ]\n");
+		totalbuf.append(this.myCalculator.calculatorSum()+"\n");
+
+		log.log(Level.INFO, totalbuf.toString());
 	}
 }

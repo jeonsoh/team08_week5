@@ -22,32 +22,10 @@ public class Calculator {
 	}
 	
 	public double calculatorSum(){
-		double totalSum=0;
-		int lineNum =this.myUser.getMyLineNum() ;
-		if(lineNum > 4){
-			this.familyDicountMyLine=lineNum -3;
-		}else if(lineNum > 1){
-			this.addedMyLine = lineNum-1;
-		}
-		if(this.myPlan instanceof Gold){
-			if(lineNum != 0 )
-				totalSum +=49.5;
-			if(lineNum > 4){
-				totalSum +=addedMyLine*14.5;
-			}
-			if(lineNum > 3){
-				
-			}
-			
-		}else if(this.myPlan instanceof Silver){
-			if(lineNum !=0){
-				
-			}
-				
-		}
+		double totalSum=0.00;
 		
 	
-		return 1.0;
+		return totalSum;
 	}
 	
 	public String processCalculator(){
@@ -69,10 +47,7 @@ public class Calculator {
 			if(lineNum> 1){
 				buf.append(" + 추가라인비용("+addedMyLine+"*14.5)");
 			}
-			if(lineNum >= 4){
-				buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
-			}
-			buf.append(" = "+this.calculatorSum());	
+			
 		}else if(this.myPlan instanceof Silver){
 			if(lineNum >0)
 				buf.append("기본비용:29.95 ");
@@ -82,10 +57,12 @@ public class Calculator {
 			if(lineNum> 1){
 				buf.append(" + 추가라인비용("+addedMyLine+"*21.50)");
 			}
-			if(lineNum >= 4){
-				buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
-			}
+			
 		}
+		if(lineNum >= 4){
+			buf.append(" + 패밀리디스카운트라인비용(5.00*"+familyDicountMyLine+")");
+		}
+		buf.append(" = "+this.calculatorSum());	
 		return buf.toString();
 	}
 	

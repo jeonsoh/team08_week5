@@ -1,29 +1,29 @@
 package com.practical.billviewservice;
 
 public class Silver implements Plan{
-	private  final double BASICMONTLYRATE = 29.95;
-	private  final int INCLUDEDMINUTES = 500;
-	private  final double RATEPEREXCESSMINUTE = 0.54;
-	private  final double ADDITIONALLINERATE = 21.50;
-	private  final int FAMILYDISCOUNTBASIC =3;
-	private  final double FAMILYDISCOUNTBASICRATE = 5.00;
+	private static final double BASICMONTLYRATE2 = 29.95;
+	private static final int INCLUDEDMINUTES2 = 500;
+	private static final double RATEPEREXCESSMINUTE2 = 0.54;
+	private static final double ADDITIONALLINERATE2 = 21.50;
+	private static final int FAMILYDISCOUNTBASIC2 =3;
+	private static final double FAMILYDISCOUNTBASICRATE2 = 5.00;
 	
 	public double getBasicMontlyRate() {
-		return BASICMONTLYRATE;
+		return BASICMONTLYRATE2;
 	}	
 	public int getIncludedMinutes() {
-		return INCLUDEDMINUTES;
+		return INCLUDEDMINUTES2;
 	}	
 	public double getRatePerExcessMinute() {
-		return RATEPEREXCESSMINUTE;
+		return RATEPEREXCESSMINUTE2;
 	}	
 	public double getAdditionalLineRate() {
-		return ADDITIONALLINERATE;
+		return ADDITIONALLINERATE2;
 	}	
 	public int getFamilyDiscountBasic() {
-		return FAMILYDISCOUNTBASIC;
+		return FAMILYDISCOUNTBASIC2;
 	}	
 	public double getFamilyDiscountBasicRate() {
-		return FAMILYDISCOUNTBASICRATE;
+		return FAMILYDISCOUNTBASICRATE2;
 	}
 }

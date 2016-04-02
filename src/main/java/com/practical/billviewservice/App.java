@@ -1,6 +1,4 @@
 package com.practical.billviewservice;
-import java.io.*;
-import java.util.StringTokenizer;
 /**
  * Hello world!
  *

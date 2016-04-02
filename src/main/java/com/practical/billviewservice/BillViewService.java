@@ -7,7 +7,7 @@ public class BillViewService {
 	private User myUser;
 	private Plan myPlan;
 	private Calculator myCalculator;
-	private final Logger MYLOG = Logger.getLogger("My Logger");
+	private static final Logger MYLOG = Logger.getLogger("My Logger");
 
 	private BillViewService(){
 

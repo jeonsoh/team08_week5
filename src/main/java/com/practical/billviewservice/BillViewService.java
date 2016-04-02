@@ -8,7 +8,7 @@ public class BillViewService {
     private User myUser;
     private Plan myPlan;
     private Calculator myCalculator;
-    private static Logger logger = LoggerFactory.getLogger(BillViewService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BillViewService.class);
 
     private BillViewService() {
 
@@ -35,7 +35,7 @@ public class BillViewService {
         userbuf.append("Minit Used : " + this.myUser.getMyinuteUsed() + "\n");
         userbuf.append("Line Number : " + this.myUser.getMyLineNum() + "\n");
 
-        logger.info(userbuf.toString());
+        LOGGER.info(userbuf.toString());
 
     }
 
@@ -49,7 +49,7 @@ public class BillViewService {
         planbuf.append("Family Discount Basic : " + this.myPlan.getFamilyDiscountBasic() + "\n");
         planbuf.append("Family Discount Basic Rate :" + this.myPlan.getFamilyDiscountBasicRate() + "\n");
 
-        logger.info(planbuf.toString());
+        LOGGER.info(planbuf.toString());
     }
 
     public void showCalculator() {
@@ -61,7 +61,7 @@ public class BillViewService {
         calbuf.append("[ 사용자의 비용 계산 과정 ]\n");
         calbuf.append(this.myCalculator.processCalculator() + "\n");
 
-        logger.info(calbuf.toString());
+        LOGGER.info(calbuf.toString());
     }
 
     public void showTotalCalculator() {
@@ -69,6 +69,6 @@ public class BillViewService {
         totalbuf.append("\n[ 총 비용 ]\n");
         totalbuf.append(this.myCalculator.calculatorSum() + "\n");
 
-        logger.info(totalbuf.toString());
+        LOGGER.info(totalbuf.toString());
     }
 }

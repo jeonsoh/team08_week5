@@ -5,8 +5,8 @@ package com.practical.billviewservice;
  *
  */
 public class App {
-	private static int USEDMINIUTE = 2000;
-	private static int LINENUMBER = 3;
+	private static final int USEDMINIUTE = 2000;
+	private static final int LINENUMBER = 3;
 	private App(){
 		
 	}

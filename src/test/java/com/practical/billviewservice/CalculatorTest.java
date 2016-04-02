@@ -15,8 +15,8 @@ import junit.framework.TestCase;
 public class CalculatorTest extends TestCase {
 	
 	
-	 private static int USEDMINIUTE = 2000;
-	 private static int LINENUMBER = 3;
+	 private static final int USEDMINIUTE = 2000;
+	 private static final int LINENUMBER = 3;
 	 public void testCalculator(){
 		 
 		

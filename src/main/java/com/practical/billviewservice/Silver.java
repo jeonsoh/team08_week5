@@ -7,7 +7,7 @@ public class Silver implements Plan{
 	private static final double ADDITIONALLINERATE2 = 21.50;
 	private static final int FAMILYDISCOUNTBASIC2 =3;
 	private static final double FAMILYDISCOUNTBASICRATE2 = 5.00;
-	
+
 	public double getBasicMontlyRate() {
 		return BASICMONTLYRATE2;
 	}	

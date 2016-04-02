@@ -7,7 +7,7 @@ public class BillViewService {
 	private User myUser;
 	private Plan myPlan;
 	private Calculator myCalculator;
-	private static Logger MYLOG;
+	private static final Logger MYLOG = Logger.getLogger("My Logger");
 	
 	private BillViewService(){
 		
@@ -20,8 +20,6 @@ public class BillViewService {
 	}
 	
 	public void showUser(){
-		MYLOG = Logger.getLogger("My Logger");
-
 		StringBuilder userbuf = new StringBuilder();
 		userbuf.append("\n[User정보]\n");
 		userbuf.append("Name : "+this.myUser.getMyName()+"\n");

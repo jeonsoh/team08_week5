@@ -1,13 +1,14 @@
 package com.practical.billviewservice;
 
-import java.util.logging.Logger;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BillViewService {
     private User myUser;
     private Plan myPlan;
     private Calculator myCalculator;
-    private static final Logger MYLOG = Logger.getLogger("My Logger");
+    private static Logger logger = LoggerFactory.getLogger(BillViewService.class);
 
     private BillViewService() {
 
@@ -34,7 +35,7 @@ public class BillViewService {
         userbuf.append("Minit Used : " + this.myUser.getMyinuteUsed() + "\n");
         userbuf.append("Line Number : " + this.myUser.getMyLineNum() + "\n");
 
-        MYLOG.log(Level.INFO, userbuf.toString());
+        logger.info(userbuf.toString());
 
     }
 
@@ -48,7 +49,7 @@ public class BillViewService {
         planbuf.append("Family Discount Basic : " + this.myPlan.getFamilyDiscountBasic() + "\n");
         planbuf.append("Family Discount Basic Rate :" + this.myPlan.getFamilyDiscountBasicRate() + "\n");
 
-        MYLOG.log(Level.INFO, planbuf.toString());
+        logger.info(planbuf.toString());
     }
 
     public void showCalculator() {
@@ -60,7 +61,7 @@ public class BillViewService {
         calbuf.append("[ 사용자의 비용 계산 과정 ]\n");
         calbuf.append(this.myCalculator.processCalculator() + "\n");
 
-        MYLOG.log(Level.INFO, calbuf.toString());
+        logger.info(calbuf.toString());
     }
 
     public void showTotalCalculator() {
@@ -68,6 +69,6 @@ public class BillViewService {
         totalbuf.append("\n[ 총 비용 ]\n");
         totalbuf.append(this.myCalculator.calculatorSum() + "\n");
 
-        MYLOG.log(Level.INFO, totalbuf.toString());
+        logger.info(totalbuf.toString());
     }
 }

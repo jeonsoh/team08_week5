@@ -5,24 +5,24 @@ package com.practical.billviewservice;
  *
  */
 public class App {
-	private static final int USEDMINIUTE = 2000;
-	private static final int LINENUMBER = 3;
+    private static final int USEDMINIUTE = 2000;
+    private static final int LINENUMBER = 3;
 
-	private App() {
+    private App() {
 
-	}
+    }
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		Plan myPlan = new Gold();
-		User myUser = new User(myPlan, USEDMINIUTE, LINENUMBER, "Hong-Gill-Dong");
+        Plan myPlan = new Gold();
+        User myUser = new User(myPlan, USEDMINIUTE, LINENUMBER, "Hong-Gill-Dong");
 
-		Calculator myCalculator = new Calculator(myUser, myPlan);
-		BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
-		billviewsystem.showUser();
-		billviewsystem.showPlan();
-		billviewsystem.showCalculator();
-		billviewsystem.showTotalCalculator();
+        Calculator myCalculator = new Calculator(myUser, myPlan);
+        BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
+        billviewsystem.showUser();
+        billviewsystem.showPlan();
+        billviewsystem.showCalculator();
+        billviewsystem.showTotalCalculator();
 
-	}
+    }
 }

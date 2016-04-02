@@ -16,9 +16,9 @@ public class Gold implements Plan {
 		return INCLUDEDMINUTES;
 	}
 
-	public double getRatePerExcessMinute() {
-		return RATEPEREXCESSMINUTE;
-	}
+    public double getRatePerExcessMinute() {
+        return RATEPEREXCESSMINUTE;
+    }
 
 	public double getAdditionalLineRate() {
 		return ADDITIONALLINERATE;

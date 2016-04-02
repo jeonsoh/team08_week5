@@ -9,23 +9,23 @@ import junit.framework.TestCase;
 
 public class CalculatorTest extends TestCase {
 
-	private static final int USEDMINIUTE = 2000;
-	private static final int LINENUMBER = 3;
+    private static final int USEDMINIUTE = 2000;
+    private static final int LINENUMBER = 3;
 
-	public void testCalculator() {
+    public void testCalculator() {
 
-		Plan myPlan = new Gold();
-		User myUser = new User(myPlan, USEDMINIUTE, LINENUMBER, "Gill-Dong");
+        Plan myPlan = new Gold();
+        User myUser = new User(myPlan, USEDMINIUTE, LINENUMBER, "Gill-Dong");
 
-		Calculator calculator = new Calculator(myUser, myPlan);
+        Calculator calculator = new Calculator(myUser, myPlan);
 
-		double sum = calculator.calculatorSum();
-		double miniBill = calculator.calculateMinutesBill();
-		double lineBill = calculator.calculateLineBill();
+        double sum = calculator.calculatorSum();
+        double miniBill = calculator.calculateMinutesBill();
+        double lineBill = calculator.calculateLineBill();
 
-		double totalBill = myPlan.getBasicMontlyRate() + miniBill + lineBill;
+        double totalBill = myPlan.getBasicMontlyRate() + miniBill + lineBill;
 
-		assertEquals(totalBill, sum);
+        assertEquals(totalBill, sum);
 
-	}
+    }
 }

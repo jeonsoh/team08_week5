@@ -35,9 +35,9 @@ public class App {
         LOGGER.info("사용자의 이름은? : ");
         name =  scan.next();
         
-        if(plan.equalsIgnoreCase("GOLD")){
+        if("GOLD".equalsIgnoreCase(plan)){
             myPlan = new Gold();
-        }else if(plan.equalsIgnoreCase("SILVER")){
+        }else if("SILVER".equalsIgnoreCase(plan)){
             myPlan = new Silver();
         }
         

@@ -21,7 +21,7 @@ maven install
 후에 
 >cd target
 
-그 
+그 후에  
 >java -jar myprogram.jar
 
 을 해서 프로그램을 실행한다.

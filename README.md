@@ -20,6 +20,8 @@ maven install
 명령어로 jar파일을 생성한다.
 후에 
 >cd target
+
+그 
 >java -jar myprogram.jar
 
 을 해서 프로그램을 실행한다.

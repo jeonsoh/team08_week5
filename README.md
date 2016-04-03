@@ -17,16 +17,16 @@ maven clean
 maven install
 을 실행해준다. 그리고 git bash에서 team08_week04폴더 안으로 들어간 후
 
-   mvn package
+    mvn package
 
 명령어로 jar파일을 생성한다.
 후에
 
-   cd target
+    cd target
 
 그 후에
  
-   java -jar myprogram.jar
+    java -jar myprogram.jar
 
 을 해서 프로그램을 실행한다.
 실행하면 사용자의 입력을 받아 콘솔창에서 해당하는 사용자의 전화요금 고지서를 확인할 수 있다. 

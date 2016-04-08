@@ -62,13 +62,71 @@ public class AppSilverTest extends TestCase {
 
     }
     
-    
     @Test
-    public void testSilver(){
-        int usedMiniute = 1;
-        int useLineNumber =1;
-        myUser = new User( myPlan, usedMiniute, useLineNumber, name );
-        Calculator calculator = new Calculator( myUser, myPlan );
+    public void testBasicLine(){
+        //라인 1, 추가라인x, 추가통화량x, family discount x
+        int usedMiniute = 499;
+        int useLineNumber = 1;
+        
+        Plan plan = new Silver();
+        User user = new User( plan, usedMiniute, useLineNumber, "test" );
+        Calculator calculator = new Calculator( user, plan );
         assertEquals( 29.95, calculator.calculatorSum() );
      }
+    @Test
+    public void testBasicLineExMinNoDC(){
+        //라인 1, 추가라인x, 추가통화량o, family discount x
+        int usedMiniute = 520;
+        int useLineNumber = 1;
+        
+        Plan plan = new Silver();
+        User user = new User( plan, usedMiniute, useLineNumber, "test" );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals( 40.75, calculator.calculatorSum() );
+     }
+    @Test
+    public void testaddLine(){
+        //라인 2or3, 추가라인o, 추가통화량x, family discount x
+        int usedMiniute = 499;
+        int useLineNumber = 2;
+        
+        Plan plan = new Silver();
+        User user = new User( plan, usedMiniute, useLineNumber, "test" );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals( 51.45, calculator.calculatorSum() );
+     }
+    @Test
+    public void testaddLineExMinNoDC(){
+        //라인 2or3, 추가라인o, 추가통화량o, family discount x
+        int usedMiniute = 523;
+        int useLineNumber = 2;
+        
+        Plan plan = new Silver();
+        User user = new User( plan, usedMiniute, useLineNumber, "test" );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals( 63.87, calculator.calculatorSum(),0.005);
+     }
+    @Test
+    public void testaddLineDC(){
+        //라인 4more, 추가라인o, 추가통화량x, family discount o
+        int usedMiniute = 499;
+        int useLineNumber = 5;
+        
+        Plan plan = new Silver();
+        User user = new User( plan, usedMiniute, useLineNumber, "test" );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals( 82.95, calculator.calculatorSum() );
+     }
+    @Test
+    public void testaddLineExMinDC(){
+        //라인 4more, 추가라인o, 추가통화량x, family discount o
+        int usedMiniute = 550;
+        int useLineNumber = 5;
+        
+        Plan plan = new Silver();
+        User user = new User( plan, usedMiniute, useLineNumber, "test" );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals( 109.95, calculator.calculatorSum() );
+     }
+    
 }

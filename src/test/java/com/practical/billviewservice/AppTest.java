@@ -96,7 +96,7 @@ public class AppTest extends TestCase {
 
     }
     @Test
-    public void testCalculatorTotaSilverl() {
+    public void testCalculatorTotaSilver() {
         int usedMiniute = 878;
         int useLineNumber = 4;
         myPlan = new Silver();

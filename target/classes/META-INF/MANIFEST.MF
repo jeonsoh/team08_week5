@@ -1,29 +1,7 @@
 Manifest-Version: 1.0
 Built-By: withGod
 Build-Jdk: 1.8.0_60
-Class-Path: lib/slf4j-jdk14-1.7.7.jar lib/slf4j-api-1.7.7.jar lib/http
- client-4.5.2.jar lib/httpcore-4.4.4.jar lib/commons-logging-1.2.jar l
- ib/commons-codec-1.9.jar lib/jacoco-maven-plugin-0.7.6.201602180812.j
- ar lib/maven-plugin-api-2.2.1.jar lib/maven-project-2.2.1.jar lib/mav
- en-settings-2.2.1.jar lib/maven-profile-2.2.1.jar lib/maven-model-2.2
- .1.jar lib/maven-artifact-manager-2.2.1.jar lib/maven-repository-meta
- data-2.2.1.jar lib/wagon-provider-api-1.0-beta-6.jar lib/backport-uti
- l-concurrent-3.1.jar lib/maven-plugin-registry-2.2.1.jar lib/plexus-i
- nterpolation-1.11.jar lib/maven-artifact-2.2.1.jar lib/plexus-contain
- er-default-1.0-alpha-9-stable-1.jar lib/classworlds-1.1-alpha-2.jar l
- ib/plexus-utils-1.5.6.jar lib/file-management-1.2.1.jar lib/maven-sha
- red-io-1.1.jar lib/maven-reporting-api-2.2.1.jar lib/doxia-sink-api-1
- .1.jar lib/doxia-logging-api-1.1.jar lib/maven-reporting-impl-2.1.jar
-  lib/doxia-core-1.1.2.jar lib/xercesImpl-2.8.1.jar lib/commons-lang-2
- .4.jar lib/commons-httpclient-3.1.jar lib/doxia-site-renderer-1.1.2.j
- ar lib/doxia-decoration-model-1.1.2.jar lib/doxia-module-xhtml-1.1.2.
- jar lib/doxia-module-fml-1.1.2.jar lib/plexus-i18n-1.0-beta-7.jar lib
- /plexus-velocity-1.1.7.jar lib/velocity-1.5.jar lib/commons-collectio
- ns-3.2.jar lib/commons-validator-1.2.0.jar lib/commons-beanutils-1.7.
- 0.jar lib/commons-digester-1.6.jar lib/oro-2.0.8.jar lib/xml-apis-1.0
- .b2.jar lib/org.jacoco.agent-0.7.6.201602180812-runtime.jar lib/org.j
- acoco.core-0.7.6.201602180812.jar lib/asm-debug-all-5.0.4.jar lib/org
- .jacoco.report-0.7.6.201602180812.jar
+Class-Path: lib/slf4j-jdk14-1.7.7.jar lib/slf4j-api-1.7.7.jar
 Main-Class: com.practical.billviewservice.App
 Created-By: Maven Integration for Eclipse
 

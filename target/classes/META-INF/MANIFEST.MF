@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Built-By: withGod
-Build-Jdk: 1.8.0_60
-Class-Path: lib/slf4j-jdk14-1.7.7.jar lib/slf4j-api-1.7.7.jar
-Main-Class: com.practical.billviewservice.App
-Created-By: Maven Integration for Eclipse
-

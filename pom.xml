@@ -118,6 +118,7 @@
 					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 	</build>
 </project>

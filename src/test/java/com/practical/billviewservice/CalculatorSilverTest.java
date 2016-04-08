@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.practical.billviewservice.Calculator;
-import com.practical.billviewservice.Gold;
 import com.practical.billviewservice.Plan;
 import com.practical.billviewservice.User;
 

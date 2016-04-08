@@ -1,5 +1,7 @@
 package com.practical.billviewservice;
 
+import org.junit.Test;
+
 import com.practical.billviewservice.Calculator;
 import com.practical.billviewservice.Gold;
 import com.practical.billviewservice.Plan;
@@ -12,6 +14,8 @@ public class CalculatorTest extends TestCase {
     private static final int USEDMINIUTE = 2000;
     private static final int LINENUMBER = 3;
 
+    
+    @Test
     public void testCalculator() {
 
         Plan myPlan = new Gold();

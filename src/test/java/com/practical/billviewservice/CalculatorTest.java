@@ -1,5 +1,6 @@
 package com.practical.billviewservice;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.practical.billviewservice.Calculator;
@@ -11,16 +12,33 @@ import junit.framework.TestCase;
 
 public class CalculatorTest extends TestCase {
 
-    private static final int USEDMINIUTE = 2000;
-    private static final int LINENUMBER = 3;
-
+    private static final int USEDMINIUTE = 0;
+    private static final int LINENUMBER = 0;
+    
+    
+    Plan myPlan;
+    User myUser;
+    Calculator calculator;
+    
+    
+    @Before
+    public void setUpGold(){
+        myPlan = new Gold();
+        myUser= new User(myPlan, USEDMINIUTE, LINENUMBER, "Gill-Dong");
+        calculator = new Calculator(myUser, myPlan);
+    }
+    
+    @Before
+    public void setUpSilver(){
+        myPlan = new Silver();
+        myUser= new User(myPlan, USEDMINIUTE, LINENUMBER, "Gill-Dong");
+        calculator = new Calculator(myUser, myPlan);
+    }
     
     @Test
-    public void testCalculator() {
+    public void testCalculatorZero() {
 
-        Plan myPlan = new Gold();
-        User myUser = new User(myPlan, USEDMINIUTE, LINENUMBER, "Gill-Dong");
-
+        
         Calculator calculator = new Calculator(myUser, myPlan);
 
         double sum = calculator.calculatorSum();

@@ -21,17 +21,14 @@ public class AppSilverTest extends TestCase {
     public void setUp(){
          myPlan=new Silver();
     }
-    
-
-    
+        
     public void show(BillViewService billviewservice){
         billviewservice.showUser();
         billviewservice.showPlan();
         billviewservice.showCalculator();
         billviewservice.showTotalCalculator();
     }
-    
-    
+        
     @Test
     public void testbillViewServiceSilver(){
         int usedMiniute = 878;
@@ -44,10 +41,7 @@ public class AppSilverTest extends TestCase {
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
         show(billviewsystem);
-    }
-    
-    
-    
+    }    
     
     @Test
     public void testCalculatorTotalSilver() {

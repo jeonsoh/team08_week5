@@ -79,6 +79,7 @@ public class AppSilverTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 29.95, calculator.calculatorSum() );
      }
+    
     @Test
     public void testBasicLineExMinNoDC(){
         //라인 1, 추가라인x, 추가통화량o, family discount x

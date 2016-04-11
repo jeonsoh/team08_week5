@@ -10,11 +10,11 @@ public class BillViewService {
     private Calculator myCalculator;
     private static final Logger LOGGER = LoggerFactory.getLogger(BillViewService.class);
 
-    private BillViewService() {
+    public BillViewService() {
 
     }
 
-    BillViewService(User user, Plan plan, Calculator caculator) {
+    public BillViewService(User user, Plan plan, Calculator caculator) {
         this.myUser = user;
         this.myCalculator = caculator;
         this.myPlan = plan;

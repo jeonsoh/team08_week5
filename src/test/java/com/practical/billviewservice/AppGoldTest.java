@@ -5,11 +5,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 
-import org.junit.Before;
-import org.junit.Test;
-import junit.framework.TestCase;
-
-
 /**
  * Unit test for simple App.
  */
@@ -54,7 +49,7 @@ public class AppGoldTest extends TestCase {
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        myUser= new User( plan, usedMiniute, useLineNumber, name );
+        myUser = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator(myUser, myPlan);
 
         double sum = calculator.calculatorSum();

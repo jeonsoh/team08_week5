@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import junit.framework.TestCase;
 
-
 /**
  * Unit test for simple App.
  */
@@ -28,7 +27,6 @@ public class AppGoldTest extends TestCase {
         return true;
     }
     
-    
     @Test
     public void billViewServiceGold(){
         int usedMiniute = 878;
@@ -37,8 +35,7 @@ public class AppGoldTest extends TestCase {
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
         assertTrue(show(billviewsystem));
-    }
-    
+    }    
 
     @Test
     public void testCalculatorTotalGold() {
@@ -55,8 +52,7 @@ public class AppGoldTest extends TestCase {
 
         assertEquals(totalBill, sum);
     }
-    
-    
+        
     @Test
     public void testBasicLine(){
         int usedMiniute = 999;

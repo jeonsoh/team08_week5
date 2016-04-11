@@ -21,10 +21,6 @@ public class AppGoldTest extends TestCase {
     }
     
     public boolean show(BillViewService billviewservice){
-        billviewservice.showUser();
-        billviewservice.showPlan();
-        billviewservice.showCalculator();
-        billviewservice.showTotalCalculator();
         return true;
     }
     
@@ -35,8 +31,12 @@ public class AppGoldTest extends TestCase {
         int useLineNumber = 4;     
         myUser = new User(myPlan, usedMiniute, useLineNumber, name);        
         Calculator myCalculator = new Calculator(myUser, myPlan);
-        BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
-        assertTrue(show(billviewsystem));
+        BillViewService billviewservice = new BillViewService(myUser, myPlan, myCalculator);
+        billviewservice.showUser();
+        billviewservice.showPlan();
+        billviewservice.showCalculator();
+        billviewservice.showTotalCalculator();
+        
     }
     
 

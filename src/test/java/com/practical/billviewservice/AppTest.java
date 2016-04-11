@@ -30,15 +30,20 @@ public class AppTest extends TestCase {
         assertTrue(true);
     }
     
-    public void testUser()
+    public void testUserSetMethod()
     {
-        int usedMiniute = 878;
+        int usedMinute = 878;
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        User user = new User( plan, usedMiniute, useLineNumber, "홍길동" );
-        Calculator calculator = new Calculator( user, plan );
-        assertEquals( 83.95, calculator.calculatorSum() );
+        User user = new User( plan, usedMinute, useLineNumber, "홍길동" );
+
+        assertEquals( usedMinute, user.getMyinuteUsed() );
+        assertEquals( useLineNumber, user.getMyLineNum() );
+        assertEquals( "홍길동", user.getMyName() );
+        assertEquals( plan, user.getMyPlantype());
+        
+
     }
 
 }

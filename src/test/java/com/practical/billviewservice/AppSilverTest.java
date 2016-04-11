@@ -29,6 +29,7 @@ public class AppSilverTest extends TestCase {
         billviewservice.showPlan();
         billviewservice.showCalculator();
         billviewservice.showTotalCalculator();
+        
     }
     
     
@@ -39,6 +40,7 @@ public class AppSilverTest extends TestCase {
         myUser = new User(myPlan, usedMiniute, useLineNumber, name);        
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
+        
         show(billviewsystem);
     }
     

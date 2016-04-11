@@ -5,6 +5,11 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 
+import org.junit.Before;
+import org.junit.Test;
+import junit.framework.TestCase;
+
+
 /**
  * Unit test for simple App.
  */
@@ -20,7 +25,6 @@ public class AppGoldTest extends TestCase {
          myPlan=new Gold();
     }
     
-    @Test
     public void show(BillViewService billviewservice){
         billviewservice.showUser();
         billviewservice.showPlan();
@@ -63,101 +67,66 @@ public class AppGoldTest extends TestCase {
     
     @Test
     public void testBasicLine(){
-        int usedMinute = 999;
+        int usedMiniute = 999;
         int useLineNumber = 1;
         
         Plan plan = new Gold();
-        User user = new User();
-        user.setMyPlantype(plan);
-        user.setMyMiniUsed(usedMinute);
-        user.setMyLineNum(useLineNumber);
-        user.setMyName(name);
-        
+        User user = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 49.95, calculator.calculatorSum() );
     }
     
     @Test
     public void testBasicLineExMinNoDC(){
-        int usedMinute = 1010;
+        int usedMiniute = 1010;
         int useLineNumber = 1;
         
         Plan plan = new Gold();
-        User user = new User();
-        
-        user.setMyPlantype(plan);
-        user.setMyMiniUsed(usedMinute);
-        user.setMyLineNum(useLineNumber);
-        user.setMyName(name);
-        
+        User user = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 54.45, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLine(){
-        int usedMinute = 999;
+        int usedMiniute = 999;
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        User user = new User();
-        
-        user.setMyPlantype(plan);
-        user.setMyMiniUsed(usedMinute);
-        user.setMyLineNum(useLineNumber);
-        user.setMyName(name);
-        
+        User user = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 83.95, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLineExMinNoDC(){
-        int usedMinute = 1010;
+        int usedMiniute = 1010;
         int useLineNumber = 3;
         
         Plan plan = new Gold();
-        User user = new User();
-        
-        user.setMyPlantype(plan);
-        user.setMyMiniUsed(usedMinute);
-        user.setMyLineNum(useLineNumber);
-        user.setMyName(name);
-        
+        User user = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 83.45, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLineDC(){
-        int usedMinute = 878;
+        int usedMiniute = 878;
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        User user = new User();
-        
-        user.setMyPlantype(plan);
-        user.setMyMiniUsed(usedMinute);
-        user.setMyLineNum(useLineNumber);
-        user.setMyName(name);
-        
+        User user = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 83.95, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLineExMinDC(){
-        int usedMinute = 1123;
+        int usedMiniute = 1123;
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        
-        User user = new User();
-        user.setMyPlantype(plan);
-        user.setMyMiniUsed(usedMinute);
-        user.setMyLineNum(useLineNumber);
-        user.setMyName(name);
-        
+        User user = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 139.3, calculator.calculatorSum() );
     }

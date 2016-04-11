@@ -33,16 +33,6 @@ public class AppTest extends TestCase {
         
         assertTrue(true);
     }
-    
-    @Test
-    public void testUserSetMethod()
-    {
-       String args[] = {"Gold", "848", "4", "홍길동"}; 
-       App app = new App();
-       
-    }
-    
-
 
    
 }

@@ -19,24 +19,27 @@ public class AppGoldTest extends TestCase {
          myPlan=new Gold();
     }
     
-    public boolean show(BillViewService billviewservice){
+    public void show(BillViewService billviewservice){
         billviewservice.showUser();
         billviewservice.showPlan();
         billviewservice.showCalculator();
         billviewservice.showTotalCalculator();
-        return true;
     }
     
     @Test
-    public void billViewServiceGold(){
+    public void testbillViewServiceGold(){
         int usedMiniute = 878;
         int useLineNumber = 4;     
-        myUser = new User(myPlan, usedMiniute, useLineNumber, name);        
+        myUser = new User(myPlan, usedMiniute, useLineNumber, name);
+        myUser.setMyLineNum(8);
+        myUser.setMyMiniUsed(833);
+        myUser.setMyName("심청");
+        myUser.setMyPlantype(new Gold());
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
-        assertTrue(show(billviewsystem));
-    }    
-
+        show(billviewsystem);
+    }
+    
     @Test
     public void testCalculatorTotalGold() {
         int usedMiniute = 878;

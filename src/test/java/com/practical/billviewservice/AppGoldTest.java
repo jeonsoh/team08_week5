@@ -58,66 +58,101 @@ public class AppGoldTest extends TestCase {
     
     @Test
     public void testBasicLine(){
-        int usedMiniute = 999;
+        int usedMinute = 999;
         int useLineNumber = 1;
         
         Plan plan = new Gold();
-        User user = new User( plan, usedMiniute, useLineNumber, name );
+        User user = new User();
+        user.setMyPlantype(plan);
+        user.setMyMiniUsed(usedMinute);
+        user.setMyLineNum(useLineNumber);
+        user.setMyName(name);
+        
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 49.95, calculator.calculatorSum() );
     }
     
     @Test
     public void testBasicLineExMinNoDC(){
-        int usedMiniute = 1010;
+        int usedMinute = 1010;
         int useLineNumber = 1;
         
         Plan plan = new Gold();
-        User user = new User( plan, usedMiniute, useLineNumber, name );
+        User user = new User();
+        
+        user.setMyPlantype(plan);
+        user.setMyMiniUsed(usedMinute);
+        user.setMyLineNum(useLineNumber);
+        user.setMyName(name);
+        
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 54.45, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLine(){
-        int usedMiniute = 999;
+        int usedMinute = 999;
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        User user = new User( plan, usedMiniute, useLineNumber, name );
+        User user = new User();
+        
+        user.setMyPlantype(plan);
+        user.setMyMiniUsed(usedMinute);
+        user.setMyLineNum(useLineNumber);
+        user.setMyName(name);
+        
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 83.95, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLineExMinNoDC(){
-        int usedMiniute = 1010;
+        int usedMinute = 1010;
         int useLineNumber = 3;
         
         Plan plan = new Gold();
-        User user = new User( plan, usedMiniute, useLineNumber, name );
+        User user = new User();
+        
+        user.setMyPlantype(plan);
+        user.setMyMiniUsed(usedMinute);
+        user.setMyLineNum(useLineNumber);
+        user.setMyName(name);
+        
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 83.45, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLineDC(){
-        int usedMiniute = 878;
+        int usedMinute = 878;
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        User user = new User( plan, usedMiniute, useLineNumber, name );
+        User user = new User();
+        
+        user.setMyPlantype(plan);
+        user.setMyMiniUsed(usedMinute);
+        user.setMyLineNum(useLineNumber);
+        user.setMyName(name);
+        
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 83.95, calculator.calculatorSum() );
     }
     
     @Test
     public void testAddLineExMinDC(){
-        int usedMiniute = 1123;
+        int usedMinute = 1123;
         int useLineNumber = 4;
         
         Plan plan = new Gold();
-        User user = new User( plan, usedMiniute, useLineNumber, name );
+        
+        User user = new User();
+        user.setMyPlantype(plan);
+        user.setMyMiniUsed(usedMinute);
+        user.setMyLineNum(useLineNumber);
+        user.setMyName(name);
+        
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 139.3, calculator.calculatorSum() );
     }

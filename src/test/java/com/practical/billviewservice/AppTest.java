@@ -29,5 +29,16 @@ public class AppTest extends TestCase {
     public void testApp() {
         assertTrue(true);
     }
+    
+    public void testUser()
+    {
+        int usedMiniute = 878;
+        int useLineNumber = 4;
+        
+        Plan plan = new Gold();
+        User user = new User( plan, usedMiniute, useLineNumber, "홍길동" );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals( 83.95, calculator.calculatorSum() );
+    }
 
 }

@@ -20,23 +20,22 @@ public class AppGoldTest extends TestCase {
          myPlan=new Gold();
     }
     
-    public boolean show(BillViewService billviewservice){
-        return true;
-    }
-    
-    
-    @Test
-    public void billViewServiceGold(){
-        int usedMiniute = 878;
-        int useLineNumber = 4;     
-        myUser = new User(myPlan, usedMiniute, useLineNumber, name);        
-        Calculator myCalculator = new Calculator(myUser, myPlan);
-        BillViewService billviewservice = new BillViewService(myUser, myPlan, myCalculator);
+    public void show(BillViewService billviewservice){
         billviewservice.showUser();
         billviewservice.showPlan();
         billviewservice.showCalculator();
         billviewservice.showTotalCalculator();
-        
+    }
+    
+    
+    @Test
+    public void testbillViewServiceGold(){
+        int usedMiniute = 878;
+        int useLineNumber = 4;     
+        myUser = new User(myPlan, usedMiniute, useLineNumber, name);        
+        Calculator myCalculator = new Calculator(myUser, myPlan);
+        BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
+        show(billviewsystem);
     }
     
 

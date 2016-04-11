@@ -24,23 +24,22 @@ public class AppSilverTest extends TestCase {
     
 
     
-    public boolean show(BillViewService billviewservice){
+    public void show(BillViewService billviewservice){
         billviewservice.showUser();
         billviewservice.showPlan();
         billviewservice.showCalculator();
         billviewservice.showTotalCalculator();
-        return true;
     }
     
     
     @Test
-    public void billViewServiceSilver(){
+    public void testbillViewServiceSilver(){
         int usedMiniute = 878;
         int useLineNumber = 4;     
         myUser = new User(myPlan, usedMiniute, useLineNumber, name);        
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
-        assertTrue(show(billviewsystem));
+        show(billviewsystem);
     }
     
     

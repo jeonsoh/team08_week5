@@ -1,6 +1,8 @@
 package com.practical.billviewservice;
 
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 
@@ -30,6 +32,7 @@ public class AppTest extends TestCase {
         assertTrue(true);
     }
     
+    @Test
     public void testUserSetMethod()
     {
         int usedMinute = 878;
@@ -42,8 +45,19 @@ public class AppTest extends TestCase {
         assertEquals( useLineNumber, user.getMyLineNum() );
         assertEquals( "홍길동", user.getMyName() );
         assertEquals( plan, user.getMyPlantype());
+       
+    }
+    
+    @Test( expected = IllegalStateException.class )
+    public void testUserMethodError() throws Exception
+    {
+        int usedMinute = -1;
+        int useLineNumber = -1;
+        String name = null;
         
-
+        Plan plan = new Gold();
+        User user = new User( plan, usedMinute, useLineNumber, "홍길동" );
+      
     }
 
 }

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 public class App {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    private static Scanner scan;
     
     private App() {
 
@@ -20,7 +21,7 @@ public class App {
     public static void main(String[] args) {
         User myUser = new User();
         Plan myPlan;
-        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(System.in);
         
         LOGGER.info("계획을 정해주세요 (GOLD? SILVER?) :");
         String plan = scan.next();

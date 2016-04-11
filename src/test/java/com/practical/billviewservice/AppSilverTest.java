@@ -36,7 +36,11 @@ public class AppSilverTest extends TestCase {
     public void testbillViewServiceSilver(){
         int usedMiniute = 878;
         int useLineNumber = 4;     
-        myUser = new User(myPlan, usedMiniute, useLineNumber, name);        
+        myUser = new User(myPlan, usedMiniute, useLineNumber, name);
+        myUser.setMyLineNum(8);
+        myUser.setMyMiniUsed(833);
+        myUser.setMyName("심청");
+        myUser.setMyPlantype(new Silver());
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
         show(billviewsystem);

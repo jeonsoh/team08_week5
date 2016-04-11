@@ -53,7 +53,9 @@ public class AppSilverTest extends TestCase {
     public void testCalculatorTotalSilver() {
         int usedMiniute = 878;
         int useLineNumber = 4;
-        myUser= new User(myPlan, usedMiniute, useLineNumber, name);
+        
+        Plan plan = new Silver();
+        myUser = new User( plan, usedMiniute, useLineNumber, name);
         Calculator calculator = new Calculator(myUser, myPlan);
 
         double sum = calculator.calculatorSum();
@@ -132,26 +134,4 @@ public class AppSilverTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 109.95, calculator.calculatorSum() );
      }
-    
-    
-    /* 왜안댐..
-    @Test
-    public void testUserMethodError()
-    {
-        int usedMinute = -1;
-        int useLineNumber = -1;
-        String name = null;
-        
-        Plan plan = new Gold();
-        User user = new User();
-      
-        exception.expect(IllegalStateException.class);
-        user.setMyPlantype(plan);
-        user.setMyMiniUsed(usedMinute);
-        user.setMyLineNum(useLineNumber);
-        user.setMyName(name);
-
-    }
-    */
-    
 }

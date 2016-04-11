@@ -1,8 +1,5 @@
 package com.practical.billviewservice;
 
-
-import org.junit.Test;
-
 import junit.framework.TestCase;
 
 

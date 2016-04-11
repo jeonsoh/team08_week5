@@ -1,15 +1,15 @@
 package com.practical.billviewservice;
 
-interface Plan {
-    public double getBasicMontlyRate();
+public abstract class Plan {
+    public abstract double getBasicMontlyRate();
 
-    public int getIncludedMinutes();
+    public abstract int getIncludedMinutes();
 
-    public double getRatePerExcessMinute();
+    public abstract double getRatePerExcessMinute();
 
-    public double getAdditionalLineRate();
+    public abstract double getAdditionalLineRate();
 
-    public int getFamilyDiscountBasic();
+    public abstract int getFamilyDiscountBasic();
 
-    public double getFamilyDiscountBasicRate();
+    public abstract double getFamilyDiscountBasicRate();
 }

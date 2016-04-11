@@ -40,6 +40,7 @@ public class AppSilverTest extends TestCase {
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
         show(billviewsystem);
+        assertTrue(true);
     }
     
     

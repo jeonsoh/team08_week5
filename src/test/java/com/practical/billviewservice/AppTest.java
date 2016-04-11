@@ -35,16 +35,8 @@ public class AppTest extends TestCase {
     @Test
     public void testUserSetMethod()
     {
-        int usedMinute = 878;
-        int useLineNumber = 4;
-        
-        Plan plan = new Gold();
-        User user = new User( plan, usedMinute, useLineNumber, "홍길동" );
-
-        assertEquals( usedMinute, user.getMyinuteUsed() );
-        assertEquals( useLineNumber, user.getMyLineNum() );
-        assertEquals( "홍길동", user.getMyName() );
-        assertEquals( plan, user.getMyPlantype());
+       String args[] = {"Gold", "848", "4", "홍길동"}; 
+       App app = new App();
        
     }
     

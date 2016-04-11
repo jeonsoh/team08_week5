@@ -20,6 +20,7 @@ public class AppGoldTest extends TestCase {
          myPlan=new Gold();
     }
     
+    @Test
     public void show(BillViewService billviewservice){
         billviewservice.showUser();
         billviewservice.showPlan();

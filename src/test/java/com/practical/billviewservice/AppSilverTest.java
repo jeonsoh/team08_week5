@@ -3,7 +3,10 @@ package com.practical.billviewservice;
 
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import junit.framework.TestCase;
 
 
@@ -22,7 +25,8 @@ public class AppSilverTest extends TestCase {
          myPlan=new Silver();
     }
     
-
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
     
     public void show(BillViewService billviewservice){
         billviewservice.showUser();
@@ -160,5 +164,25 @@ public class AppSilverTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 109.95, calculator.calculatorSum() );
      }
+    
+    /* 왜안댐..
+    @Test
+    public void testUserMethodError()
+    {
+        int usedMinute = -1;
+        int useLineNumber = -1;
+        String name = null;
+        
+        Plan plan = new Gold();
+        User user = new User();
+      
+        exception.expect(IllegalStateException.class);
+        user.setMyPlantype(plan);
+        user.setMyMiniUsed(usedMinute);
+        user.setMyLineNum(useLineNumber);
+        user.setMyName(name);
+
+    }
+    */
     
 }

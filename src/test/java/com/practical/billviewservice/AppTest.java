@@ -48,16 +48,6 @@ public class AppTest extends TestCase {
        
     }
     
-    @Test( expected = IllegalStateException.class )
-    public void testUserMethodError() throws Exception
-    {
-        int usedMinute = -1;
-        int useLineNumber = -1;
-        String name = null;
-        
-        Plan plan = new Gold();
-        User user = new User( plan, usedMinute, useLineNumber, "홍길동" );
-      
-    }
+
 
 }

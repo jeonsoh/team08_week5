@@ -30,7 +30,7 @@ public class User {
         return myMinitUsed;
     }
 
-    public void setMyMiniUsed(int myMiniUsed) {
+    public void setMyMiniUsed(int myMiniUsed){
         if(myMiniUsed < 0){
             throw new IllegalStateException("사용 시간은 음수일 수 없습니다.");
         }else{
@@ -42,7 +42,7 @@ public class User {
         return myLineNum;
     }
 
-    public void setMyLineNum(int myLineNum) {
+    public void setMyLineNum(int myLineNum){
         if(myLineNum <= 0){
             throw new IllegalStateException("라인의 수는 1 이상이여야 합니다.");
         }else{

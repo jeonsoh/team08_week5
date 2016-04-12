@@ -47,7 +47,9 @@ public class AppGoldTest extends TestCase {
     public void testCalculatorTotalGold() {
         int usedMiniute = 878;
         int useLineNumber = 4;
-        myUser= new User(myPlan, usedMiniute, useLineNumber, name);
+        
+        Plan plan = new Gold();
+        myUser = new User( plan, usedMiniute, useLineNumber, name );
         Calculator calculator = new Calculator(myUser, myPlan);
 
         double sum = calculator.calculatorSum();

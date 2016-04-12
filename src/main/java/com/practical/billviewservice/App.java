@@ -14,7 +14,7 @@ public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
     private static Scanner scan;
     
-    private App() {
+    App() {
 
     }
 

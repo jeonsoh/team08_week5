@@ -12,19 +12,17 @@ import junit.framework.TestCase;
  */
 public class AppSilverTest extends TestCase {
     
-    BillViewService billViewService  = null;
-    String name="홍길동";
-    Plan myPlan=null;
-    User myUser=null;
+    BillViewService billViewService = null;
+    String name = "홍길동";
+    Plan myPlan = null;
+    User myUser = null;
     
     @Before
     public void setUp(){
-         myPlan=new Silver();
+         myPlan = new Silver();
     }
-    
 
-    
-    public void show(BillViewService billviewservice){
+    public void show( BillViewService billviewservice ){
         billviewservice.showUser();
         billviewservice.showPlan();
         billviewservice.showCalculator();
@@ -47,23 +45,22 @@ public class AppSilverTest extends TestCase {
     }
     
     
-    
-    
     @Test
     public void testCalculatorTotalSilver() {
         int usedMiniute = 878;
         int useLineNumber = 4;
-        myUser= new User(myPlan, usedMiniute, useLineNumber, name);
+        
+        Plan plan = new Silver();
+        myUser = new User( plan, usedMiniute, useLineNumber, name);
         Calculator calculator = new Calculator(myUser, myPlan);
 
-        double sum = calculator.calculatorSum();
-        double miniBill = calculator.calculateMinutesBill();
-        double lineBill = calculator.calculateLineBill();
+        double sum2 = calculator.calculatorSum();
+        double miniBill2 = calculator.calculateMinutesBill();
+        double lineBill2 = calculator.calculateLineBill();
 
-        double totalBill = myPlan.getBasicMontlyRate() + miniBill + lineBill;
+        double totalBill = myPlan.getBasicMontlyRate() + miniBill2 + lineBill2;
 
-        assertEquals(totalBill, sum);
-
+        assertEquals(totalBill, sum2);
     }
     
     @Test
@@ -77,6 +74,7 @@ public class AppSilverTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 29.95, calculator.calculatorSum() );
      }
+    
     @Test
     public void testBasicLineExMinNoDC(){
         //라인 1, 추가라인x, 추가통화량o, family discount x
@@ -132,5 +130,4 @@ public class AppSilverTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 109.95, calculator.calculatorSum() );
      }
-    
 }

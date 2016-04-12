@@ -26,6 +26,7 @@ public class Plan {
         return this.basicRate;
     }
 
+
     public int getIncludedMinutes() {
         return this.includedMinutes;
     }

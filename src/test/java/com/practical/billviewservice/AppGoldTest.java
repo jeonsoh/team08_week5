@@ -127,4 +127,14 @@ public class AppGoldTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 139.3, calculator.calculatorSum() );
     }
+    @Test
+    public void testException(){
+        int usedMiniute = -3;
+        int useLineNumber = -5;
+        
+        Plan plan = new Gold();
+        User user = new User( plan, usedMiniute, useLineNumber, null );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals(-37.05, calculator.calculatorSum() );
+    }
 }

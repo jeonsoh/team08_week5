@@ -130,4 +130,14 @@ public class AppSilverTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 109.95, calculator.calculatorSum() );
      }
+    @Test
+    public void testException(){
+        int usedMiniute = -3;
+        int useLineNumber = -5;
+        
+        Plan plan = new Silver();
+        User user = new User( plan, usedMiniute, useLineNumber, null );
+        Calculator calculator = new Calculator( user, plan );
+        assertEquals(-99.05, calculator.calculatorSum() );
+    }
 }

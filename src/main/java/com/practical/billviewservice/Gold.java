@@ -11,5 +11,6 @@ public class Gold extends Plan {
     public Gold(){
         super( BASICMONTLYRATE, INCLUDEDMINUTES ,RATEPEREXCESSMINUTE,ADDITIONALLINERATE,
                 FAMILYDISCOUNTBASIC, FAMILYDISCOUNTBASICRATE );
+
     }
 }

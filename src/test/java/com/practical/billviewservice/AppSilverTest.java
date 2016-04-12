@@ -47,8 +47,6 @@ public class AppSilverTest extends TestCase {
     }
     
     
-    
-    
     @Test
     public void testCalculatorTotalSilver() {
         int usedMiniute = 878;
@@ -58,14 +56,13 @@ public class AppSilverTest extends TestCase {
         myUser = new User( plan, usedMiniute, useLineNumber, name);
         Calculator calculator = new Calculator(myUser, myPlan);
 
-        double sum = calculator.calculatorSum();
-        double miniBill = calculator.calculateMinutesBill();
-        double lineBill = calculator.calculateLineBill();
+        double sum2 = calculator.calculatorSum();
+        double miniBill2 = calculator.calculateMinutesBill();
+        double lineBill2 = calculator.calculateLineBill();
 
-        double totalBill = myPlan.getBasicMontlyRate() + miniBill + lineBill;
+        double totalBill = myPlan.getBasicMontlyRate() + miniBill2 + lineBill2;
 
-        assertEquals(totalBill, sum);
-
+        assertEquals(totalBill, sum2);
     }
     
     @Test

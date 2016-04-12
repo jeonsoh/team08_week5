@@ -8,34 +8,8 @@ public class Gold extends Plan {
     private static final int FAMILYDISCOUNTBASIC = 3;
     private static final double FAMILYDISCOUNTBASICRATE = 5.00;
     
-    @Override
-    public double getBasicMontlyRate() {
-        return BASICMONTLYRATE;
+    public Gold(){
+        super( BASICMONTLYRATE, INCLUDEDMINUTES ,RATEPEREXCESSMINUTE,ADDITIONALLINERATE,
+                FAMILYDISCOUNTBASIC, FAMILYDISCOUNTBASICRATE );
     }
-
-    @Override
-    public int getIncludedMinutes() {
-        return INCLUDEDMINUTES;
-    }
-
-    @Override
-    public double getRatePerExcessMinute() {
-        return RATEPEREXCESSMINUTE;
-    }
-
-    @Override
-    public double getAdditionalLineRate() {
-        return ADDITIONALLINERATE;
-    }
-
-    @Override
-    public int getFamilyDiscountBasic() {
-        return FAMILYDISCOUNTBASIC;
-    }
-
-    @Override
-    public double getFamilyDiscountBasicRate() {
-        return FAMILYDISCOUNTBASICRATE;
-    }
-
 }

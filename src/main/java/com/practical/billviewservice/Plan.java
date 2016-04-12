@@ -1,15 +1,44 @@
 package com.practical.billviewservice;
 
-public abstract class Plan {
-    public abstract double getBasicMontlyRate();
+public class Plan {
+    private double BASICMONTLYRATE;
+    private int INCLUDEDMINUTES;
+    private double RATEPEREXCESSMINUTE;
+    private double ADDITIONALLINERATE;
+    private int FAMILYDISCOUNTBASIC;
+    private double FAMILYDISCOUNTBASICRATE;
+    
+    public Plan( double basicRate, int includedMinutes, double ratePreExcessMinute,
+            double additionalLineRate, int familyDiscountBasic, double familyDiscountBasicRate ){
+        this.BASICMONTLYRATE = basicRate;
+        this.INCLUDEDMINUTES = includedMinutes;
+        this.RATEPEREXCESSMINUTE = ratePreExcessMinute;
+        this.ADDITIONALLINERATE = additionalLineRate;
+        this.FAMILYDISCOUNTBASIC = familyDiscountBasic;
+        this.FAMILYDISCOUNTBASICRATE = familyDiscountBasicRate;
+    }
+    
+    public double getBasicMontlyRate() {
+        return BASICMONTLYRATE;
+    }
 
-    public abstract int getIncludedMinutes();
+    public int getIncludedMinutes() {
+        return INCLUDEDMINUTES;
+    }
 
-    public abstract double getRatePerExcessMinute();
+    public double getRatePerExcessMinute() {
+        return RATEPEREXCESSMINUTE;
+    }
 
-    public abstract double getAdditionalLineRate();
+    public double getAdditionalLineRate() {
+        return ADDITIONALLINERATE;
+    }
+    
+    public int getFamilyDiscountBasic() {
+        return FAMILYDISCOUNTBASIC;
+    }
 
-    public abstract int getFamilyDiscountBasic();
-
-    public abstract double getFamilyDiscountBasicRate();
+    public double getFamilyDiscountBasicRate() {
+        return FAMILYDISCOUNTBASICRATE;
+    }
 }

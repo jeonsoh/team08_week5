@@ -8,6 +8,10 @@ public class Plan {
     private int familyDiscountBasic;
     private double familyDiscountBasicRate;
     
+    public Plan(){
+        
+    }
+    
     public Plan( double basicRate, int includedMinutes, double ratePreExcessMinute,
             double additionalLineRate, int familyDiscountBasic, double familyDiscountBasicRate ){
         this.basicRate = basicRate;

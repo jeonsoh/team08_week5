@@ -12,19 +12,17 @@ import junit.framework.TestCase;
  */
 public class AppSilverTest extends TestCase {
     
-    BillViewService billViewService  = null;
-    String name="홍길동";
-    Plan myPlan=null;
-    User myUser=null;
+    BillViewService billViewService = null;
+    String name = "홍길동";
+    Plan myPlan = null;
+    User myUser = null;
     
     @Before
     public void setUp(){
-         myPlan=new Silver();
+         myPlan = new Silver();
     }
-    
 
-    
-    public void show(BillViewService billviewservice){
+    public void show( BillViewService billviewservice ){
         billviewservice.showUser();
         billviewservice.showPlan();
         billviewservice.showCalculator();

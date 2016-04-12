@@ -11,7 +11,7 @@ public class User {
         
     }
     
-    public User(Plan myPlan, int minitUsed, int lineNum, String name) {
+    public User( Plan myPlan, int minitUsed, int lineNum, String name ) {
         this.myPlantype = myPlan;
         this.myMinitUsed = minitUsed;
         this.myLineNum = lineNum;
@@ -32,7 +32,7 @@ public class User {
 
     public void setMyMiniUsed(int myMiniUsed){
         if(myMiniUsed < 0){
-            throw new IllegalStateException("사용 시간은 음수일 수 없습니다.");
+            throw new IllegalStateException( "사용 시간은 음수일 수 없습니다." );
         }else{
             this.myMinitUsed = myMiniUsed;
         }

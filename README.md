@@ -26,9 +26,9 @@ maven install
 
 그 후에
  
-    java -jar myprogram.jar
+    java -jar myprogram.jar "user1.txt"
 
-을 해서 프로그램을 실행한다.
+을 해서 user1에 대한 정보의 프로그램을 실행한다.
 실행하면 사용자의 입력을 받아 콘솔창에서 해당하는 사용자의 전화요금 고지서를 확인할 수 있다. 
 
 <hr/>

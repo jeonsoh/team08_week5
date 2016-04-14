@@ -31,9 +31,10 @@ public class App {
                 File path = new File("");
                
                 if("--file".equals(args[0])){
-                    fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args[i]);
-                    fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+i+".txt");
-                    
+                    if(i>0){
+                        fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args[i]);
+                        fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+i+".txt");
+                    }
                 }else{
                     
                     fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+args[i]);

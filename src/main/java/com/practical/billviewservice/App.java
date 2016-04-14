@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory;
 public class App {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
-    User myUser = new User();
-    Plan myPlan = null;
+    private static User myUser = new User();
+    private static Plan myPlan = null;
     
     private App(String args,int cnt){
 
@@ -67,12 +67,12 @@ public class App {
 
     public static void main(String[] args) {
         for(int i =0;i<args.length;i++){
-            App app =new App(args[i],i);
-            app.appRun();
+            new App(args[i],i);
+            App.appRun();
         }
     }
 
-    private void appSet(String line){
+    private static void appSet(String line){
         StringTokenizer parser = new StringTokenizer(line, " ");
         
 
@@ -96,7 +96,7 @@ public class App {
             myUser.setMyName(word);
         }
     }
-    private  void appRun() {
+    private  static void appRun() {
         
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);

@@ -32,7 +32,7 @@ public class AppTest extends TestCase {
      */
     @Test
     public void testApp() throws IOException {
-        String userfile[]= new String[4];
+        String[] userfile= new String[4];
         
         userfile[0] = "user1.txt";
         userfile[1] = "user2.txt";
@@ -45,7 +45,7 @@ public class AppTest extends TestCase {
     } 
     @Test
     public void testErrorApp() throws IOException {
-        String userfile[]= new String[4];
+        String[] userfile= new String[4];
         
         userfile[0] = "--file";
         userfile[1] = "user1.txt";

@@ -49,7 +49,7 @@ public class App {
                 byte[] buf = new byte[1024];
                 
                 
-                for(int count=0; count != -1; count = fis.read(buf) ) {
+                for(int count=0; count>=0; count = fis.read(buf) ) {
                     fos.write(buf, 0, count);
                 }
 

@@ -1,29 +1,37 @@
 package com.practical.billviewservice;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.StringTokenizer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 public class App {
-    private static final Logger LOGGER = LoggerFactory.getLogger(BillViewService.class);
-    private static BufferedReader in;
+    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    FileInputStream fis = null;
     public static void main(String[] args) {
         
-        
+        FileInputStream fis = null;
+        FileOutputStream fos =null;
         try{
             
-            in = new BufferedReader(new FileReader("user.txt"));
-            String line = in.readLine();
-            while(line != null){                                               
-                appRun(line);                                
-                line = in.readLine();
-            }
+            fis = new FileInputStream("user.txt");
+             fos = new FileOutputStream("out.txt");
             
-            in.close();
+            byte[] buf = new byte[1024];
+            int count = 0;
+            
+            while ( (count = fis.read(buf) ) != -1) {
+                fos.write(buf, 0, count);
+            }
+            String value = new String(buf, "UTF-8");
+            if(value !=null)
+               appRun(value);
+            fos.close();
             
             
         }catch(IOException e){
@@ -34,38 +42,35 @@ public class App {
 
     private static void appRun(String line) {
         StringTokenizer parser = new StringTokenizer(line, " ");
-        int cnt=0;
+        int cnt=1;
         User myUser = new User();
         Plan myPlan = null; 
         while(parser.hasMoreTokens()){
-            String word = parser.nextToken().toUpperCase();            
+            String word = parser.nextToken().toUpperCase();  
             switch(cnt){
-            case 0:
-                break;
-            case 1:
-                if("GOLD".equalsIgnoreCase(word)){
-                myPlan = new Gold();    
-                }else if("SILVER".equalsIgnoreCase(word))
-                {
-                    myPlan = new Silver();
-                }        
-                myUser.setMyPlantype(myPlan);
-                break;
-            case 2:   
-                myUser.setMyMiniUsed(Integer.valueOf(word));
-                break;
-            case 3:
-                myUser.setMyLineNum(Integer.valueOf(word));
-                break;
-            case 4:
-                myUser.setMyName(word);
-                break;
-            default:
-                    
+                case 1:
+                    if("GOLD".equalsIgnoreCase(word)){
+                        myPlan = new Gold();    
+                    }else if("SILVER".equalsIgnoreCase(word))
+                    {
+                        myPlan = new Silver();
+                    }        
+                    myUser.setMyPlantype(myPlan);
+                    break;
+                case 2:   
+                    myUser.setMyMiniUsed(Integer.valueOf(word));
+                    break;
+                case 3:
+                    myUser.setMyLineNum(Integer.valueOf(word));
+                    break;
+                case 4:
+                    myUser.setMyName(word);
+                    break;
+                default:
             }
             cnt++;                    
             if(cnt==5)
-                cnt=0;
+                cnt=1;
         }
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);

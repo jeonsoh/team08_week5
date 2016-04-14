@@ -96,7 +96,8 @@ public class App {
             myUser.setMyName(word);
         }
     }
-    private  static void appRun() {
+    
+    private  void appRun() {
         
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);

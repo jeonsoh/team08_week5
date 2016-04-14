@@ -16,17 +16,14 @@ public class App {
         
         try{
             
-            in = new BufferedReader(new FileReader(args[0]));
+            in = new BufferedReader(new FileReader("user.txt"));
             String line = in.readLine();
             while(line != null){                                               
                 appRun(line);                                
                 line = in.readLine();
             }
-            try {
-                in.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            
+            in.close();
             
             
         }catch(IOException e){

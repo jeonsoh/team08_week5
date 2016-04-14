@@ -4,47 +4,48 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class App {
-    
-    App() {
-
-    }
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(BillViewService.class);
     public static void main(String[] args) {
+        BufferedReader in=null;
         
         try{
-            BufferedReader in = new BufferedReader(new FileReader(args[0]));
+            
+            in= new BufferedReader(new FileReader(args[0]));
             String line = in.readLine();
-            while(line != null){
-                User myUser = new User();
-                Plan myPlan = null;
-                int cnt=0;
-                StringTokenizer parser = new StringTokenizer(line, " ");
-                myPlan = appRun(myUser, myPlan, cnt, parser);
+            while(line != null){                                               
+                appRun(line);                                
                 line = in.readLine();
-                Calculator myCalculator = new Calculator(myUser, myPlan);
-                BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
-                billviewsystem.showUser();
-                billviewsystem.showPlan();
-                billviewsystem.showCalculator();
-                billviewsystem.showTotalCalculator();
             }
-            in.close();
+            
             
         }catch(IOException e){
-            System.out.println(e);
+            LOGGER.info(e.toString());
+        }finally{
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
       
     }
 
-    private static Plan appRun(User myUser, Plan myPlan, int cnt, StringTokenizer parser) {
+    private static void appRun(String line) {
+        StringTokenizer parser = new StringTokenizer(line, " ");
+        int cnt=0;
+        User myUser = new User();
+        Plan myPlan = null; 
         while(parser.hasMoreTokens()){
-            String word = parser.nextToken().toUpperCase();
-            
+            String word = parser.nextToken().toUpperCase();            
             switch(cnt){
             case 0:
+                break;
+            case 1:
                 if("GOLD".equalsIgnoreCase(word)){
                 myPlan = new Gold();    
                 }else if("SILVER".equalsIgnoreCase(word))
@@ -53,22 +54,27 @@ public class App {
                 }        
                 myUser.setMyPlantype(myPlan);
                 break;
-            case 1:   
+            case 2:   
                 myUser.setMyMiniUsed(Integer.valueOf(word));
                 break;
-            case 2:
+            case 3:
                 myUser.setMyLineNum(Integer.valueOf(word));
                 break;
-            case 3:
+            case 4:
                 myUser.setMyName(word);
                 break;
             default:
                     
             }
             cnt++;                    
-            if(cnt==4)
+            if(cnt==5)
                 cnt=0;
         }
-        return myPlan;
+        Calculator myCalculator = new Calculator(myUser, myPlan);
+        BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
+        billviewsystem.showUser();
+        billviewsystem.showPlan();
+        billviewsystem.showCalculator();
+        billviewsystem.showTotalCalculator();
     }
 }

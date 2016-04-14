@@ -23,21 +23,20 @@ public class App {
             try{
 
                 String fileName = args[i];                 
-                String realPath=null;
-                String userPath=null;
-                String outputPath=null;                
+               
+                String userPath="";
+                String outputPath="";                
 
                 // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일 
 
                 File path = new File("");
                 if("--file".equals(args[0])){
-                    realPath = path.getAbsolutePath();
-                    userPath = realPath+"/classes/user/";
-                    outputPath = realPath+"/classes/output/";
+                    userPath = path.getAbsolutePath()+"/classes/user/";
+                    outputPath = path.getAbsolutePath()+"/classes/output/";
                 }else{
-                    realPath = path.getAbsolutePath();
-                    userPath = realPath+"/src/main/resources/user/";
-                    outputPath = realPath+"/src/main/resources/user/";
+                    
+                    userPath = path.getAbsolutePath()+"/src/main/resources/user/";
+                    outputPath = path.getAbsolutePath()+"/src/main/resources/user/";
                 }
 
                 String userlFile =userPath+fileName;
@@ -48,8 +47,8 @@ public class App {
                 FileOutputStream fos = new FileOutputStream(outputFile);
                                
                 byte[] buf = new byte[1024];
+                
                 int count = 0;
-
                 while ( (count = fis.read(buf) ) != -1) {
                     fos.write(buf, 0, count);
                 }

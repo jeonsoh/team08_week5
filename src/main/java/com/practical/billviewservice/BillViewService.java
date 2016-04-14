@@ -56,7 +56,7 @@ public class BillViewService {
         StringBuilder calbuf = new StringBuilder();
         calbuf.append( "\n[사용자의 라인에 대한 비용 ]\n" );
         calbuf.append( this.myCalculator.calculateLineBill() + "\n" );
-        calbuf.append( "[사용자의 통화량에 대한 비용 ]\n" );
+        calbuf.append( "[사용자의 추가 통화량에 대한 비용 ]\n" );
         calbuf.append( this.myCalculator.calculateMinutesBill() + "\n" );
         calbuf.append( "[ 사용자의 비용 계산 과정 ]\n" );
         calbuf.append( this.myCalculator.processCalculator() + "\n" );

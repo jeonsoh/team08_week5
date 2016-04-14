@@ -1,9 +1,9 @@
 package com.practical.billviewservice;
 
-import java.util.Scanner;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
 
 /**
  * Hello world!
@@ -11,44 +11,58 @@ import org.slf4j.LoggerFactory;
  */
 public class App {
     
-    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
-    private static Scanner scan;
-    
     App() {
 
     }
 
     public static void main(String[] args) {
+        new App(args[0]);
+    }
+    public App(String file){
         User myUser = new User();
-        Plan myPlan;
-        scan = new Scanner(System.in);
-        
-        LOGGER.info("계획을 정해주세요 (GOLD? SILVER?) :");
-        String plan = scan.next();
-        if("GOLD".equalsIgnoreCase(plan)){
-            myPlan = new Gold();
-        }else if("SILVER".equalsIgnoreCase(plan)){
-            myPlan = new Silver();
-        }else{
-            throw new IllegalStateException("서비스 하지 않는 계획입니다.");
+        Plan myPlan = null;
+        int cnt=0;
+        try{
+            BufferedReader in = new BufferedReader(new FileReader(file));
+            String line = in.readLine();
+            while(line != null){
+            StringTokenizer parser = new StringTokenizer(line, " ");
+                while(parser.hasMoreTokens()){
+                    String word = parser.nextToken().toUpperCase();
+                    
+                    if(cnt==0){
+                        if(word.equalsIgnoreCase("GOLD")){
+                            myPlan = new Gold();    
+                        }else if(word.equalsIgnoreCase("SILVER"))
+                        {
+                            myPlan = new Silver();
+                        }        
+                        myUser.setMyPlantype(myPlan);
+                    }else if(cnt==1){   
+                        myUser.setMyMiniUsed(Integer.valueOf(word));
+                    }else if(cnt==2){
+                        myUser.setMyLineNum(Integer.valueOf(word));
+                    }else if(cnt==3){
+                        myUser.setMyName(word);
+                    }
+                    cnt++;                    
+                    if(cnt==4)
+                        cnt=0;
+                }
+                line = in.readLine();
+            }
+            in.close();
+            
+        }catch(IOException e){
+            System.out.println(e);
         }
-        myUser.setMyPlantype(myPlan);
-        
-        LOGGER.info("사용자가 이용 시간 ? :");
-        myUser.setMyMiniUsed(scan.nextInt());
-        
-        LOGGER.info("사용자가 이용한 전화선 수? : ");
-        myUser.setMyLineNum(scan.nextInt());
-        
-        LOGGER.info("사용자의 이름은? : ");
-        myUser.setMyName(scan.next());
-        
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
         billviewsystem.showUser();
         billviewsystem.showPlan();
         billviewsystem.showCalculator();
         billviewsystem.showTotalCalculator();
+        
 
     }
 }

@@ -81,7 +81,7 @@ public class Calculator {
             this.minutesBill = excess * excessMinutesRate;
         }
 
-        return this.minutesBill;
+        return Math.round(this.minutesBill*100d) / 100d;
     }
 
     public double calculateLineBill() {
@@ -90,7 +90,7 @@ public class Calculator {
 
         lineBill = (this.addedMyLine * additionallinerate) + (this.familyDiscountMyLine * familydiscountrate);
 
-        return lineBill;
+        return Math.round(this.lineBill*100d) / 100d;
     }
 
 }

@@ -13,14 +13,14 @@ import org.slf4j.LoggerFactory;
 public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
     FileInputStream fis = null;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         FileInputStream fis = null;
         FileOutputStream fos =null;
         try{
             
             fis = new FileInputStream("user.txt");
-             fos = new FileOutputStream("out.txt");
+            fos = new FileOutputStream("out.txt");
             
             byte[] buf = new byte[1024];
             int count = 0;
@@ -31,11 +31,12 @@ public class App {
             String value = new String(buf, "UTF-8");
             if(value !=null)
                appRun(value);
-            fos.close();
-            
             
         }catch(IOException e){
             LOGGER.info(e.toString());
+        }finally{
+            fos.close();
+            fis.close();
         }
       
     }

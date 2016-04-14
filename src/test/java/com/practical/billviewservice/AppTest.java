@@ -1,5 +1,7 @@
 package com.practical.billviewservice;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -32,7 +34,11 @@ public class AppTest extends TestCase {
         String userfile[]= new String[2];
         userfile[0] = "user.txt";
         userfile[1] = "user2.txt";
-        App.main(userfile);
+        try {
+            App.main(userfile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         assertTrue(true);
     }
 

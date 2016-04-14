@@ -34,16 +34,14 @@ public class App {
                 File path = new File("");
                
                 if("--file".equals(args[0])){
-                    String userlFile = path.getAbsolutePath()+"/classes/user/"+fileName;
-                    String outputFile = path.getAbsolutePath()+"/classes/output/"+"out"+i+".txt";
-                    fis  = new FileInputStream(userlFile);
-                    fos = new FileOutputStream(outputFile);
+                    fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+fileName);
+                    fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+i+".txt");
+                    
                 }else{
                     
-                    String userlFile = path.getAbsolutePath()+"/src/main/resources/user/"+fileName;
-                    String outputFile = path.getAbsolutePath()+"/src/main/resources/user/"+"out"+i+".txt";
-                    fis  = new FileInputStream(userlFile);
-                    fos = new FileOutputStream(outputFile);
+                    fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+fileName);
+                    fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/user/"+"out"+i+".txt");
+                   
                 }
                           
                 byte[] buf = new byte[1024];
@@ -53,25 +51,21 @@ public class App {
                     fos.write(buf, 0, count);
                 }
 
-                String value=new String(buf, "UTF-8");
+                
 
-                appRun(value);
+                appRun(new String(buf, "UTF-8"));
    
             }catch (Exception e) {
                 LOGGER.error("context", e);
             }finally{
-                if(fos!=null)
+                if(fos!=null || fis!=null)
                     try {
                         fos.close();
+                        fis.close();
                     } catch (IOException e) {                        
                         LOGGER.error("context", e);
                     }
-                if(fis!=null)
-                    try {
-                        fis.close();
-                    } catch (IOException e) {
-                        LOGGER.error("context", e);
-                    }
+                
             }
         }
 

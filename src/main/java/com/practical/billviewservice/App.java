@@ -18,17 +18,14 @@ public class App {
     public static void main(String[] args) {
 
         
-        String value = null;
-        String fileName=null;
-        String realPath=null;
-        String userPath=null;
-        String outputPath=null;
+       
         for(int i =0;i<args.length;i++){
             try{
 
-
-                fileName = args[i];
-                
+                String fileName = args[i];                 
+                String realPath=null;
+                String userPath=null;
+                String outputPath=null;                
 
                 // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일 
 
@@ -57,7 +54,7 @@ public class App {
                     fos.write(buf, 0, count);
                 }
 
-                value=new String(buf, "UTF-8");
+                String value=new String(buf, "UTF-8");
 
                 appRun(value);
 

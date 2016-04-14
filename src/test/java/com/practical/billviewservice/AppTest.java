@@ -42,6 +42,19 @@ public class AppTest extends TestCase {
         App.main(userfile);
        
         assertTrue(true);
+    } 
+    @Test
+    public void testErrorApp() throws IOException {
+        String userfile[]= new String[4];
+        
+        userfile[0] = "--file";
+        userfile[1] = "user1.txt";
+        userfile[2] = "user2.txt";
+        userfile[3] = "user3.txt";
+        
+        App.main(userfile);
+       
+        assertTrue(true);
     }
 
    

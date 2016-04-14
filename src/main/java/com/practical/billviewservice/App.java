@@ -34,7 +34,7 @@ public class App {
                 // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일 
 
                 File path = new File("");
-                if(args[0].equals("--file")){
+                if("--file".equals(args[0])){
                     realPath = path.getAbsolutePath();
                     userPath = realPath+"/classes/user/";
                     outputPath = realPath+"/classes/output/";
@@ -66,13 +66,13 @@ public class App {
                 LOGGER.error("context", e);
             }finally{
 
-                if(fos!=null)
+                
                     try {
                         fos.close();
                     } catch (IOException e) {                        
                         LOGGER.error("context", e);
                     }
-                if(fis!=null)
+                
                     try {
                         fis.close();
                     } catch (IOException e) {

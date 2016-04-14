@@ -36,8 +36,7 @@ public class App {
                 
                 String userlFile =userPath+fileName;
                 String outputFile =outputPath+"out"+i+".txt";
-                System.out.println(userlFile);
-                System.out.println(outputFile);
+                                
                 
                 fis = new FileInputStream(userlFile);
                 fos = new FileOutputStream(outputFile);

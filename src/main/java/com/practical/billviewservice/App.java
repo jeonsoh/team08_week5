@@ -16,14 +16,11 @@ public class App {
     }
 
     public static void main(String[] args) {
-        new App(args[0]);
-    }
-    public App(String file){
         User myUser = new User();
         Plan myPlan = null;
         int cnt=0;
         try{
-            BufferedReader in = new BufferedReader(new FileReader(file));
+            BufferedReader in = new BufferedReader(new FileReader(args[0]));
             String line = in.readLine();
             while(line != null){
             StringTokenizer parser = new StringTokenizer(line, " ");
@@ -62,7 +59,5 @@ public class App {
         billviewsystem.showPlan();
         billviewsystem.showCalculator();
         billviewsystem.showTotalCalculator();
-        
-
     }
 }

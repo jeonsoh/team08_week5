@@ -27,10 +27,11 @@ public class AppTest extends TestCase {
     
 
     /**
-     * Rigourous Test :-)
+     * App Test :-)
+     * @throws IOException 
      */
     @Test
-    public void testApp() {
+    public void testApp() throws IOException {
         String userfile[]= new String[2];
         userfile[0] = "user.txt";
         userfile[1] = "user2.txt";
@@ -38,6 +39,8 @@ public class AppTest extends TestCase {
             App.main(userfile);
         } catch (IOException e) {
             e.printStackTrace();
+        }catch (Exception e){
+            throw new IOException(e);
         }
         assertTrue(true);
     }

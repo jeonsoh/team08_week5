@@ -21,7 +21,8 @@ public class App {
     public static void main(String[] args) {
 
         
-       
+        FileInputStream fis =null;
+        FileOutputStream fos =null;
         for(int i =0;i<args.length;i++){
             try{
 
@@ -31,8 +32,7 @@ public class App {
 
                 
                 File path = new File("");
-                FileInputStream fis =null;
-                FileOutputStream fos =null;
+               
                 if("--file".equals(args[0])){
                     String userlFile = path.getAbsolutePath()+"/classes/user/"+fileName;
                     String outputFile = path.getAbsolutePath()+"/classes/output/"+"out"+i+".txt";
@@ -48,16 +48,18 @@ public class App {
                           
                 byte[] buf = new byte[1024];
                 
-                int count = 0;
-                while ( (count = fis.read(buf) ) != -1) {
+                
+                for(int count=0; count != -1; count = fis.read(buf) ) {
                     fos.write(buf, 0, count);
                 }
 
                 String value=new String(buf, "UTF-8");
 
                 appRun(value);
-
-                
+   
+            }catch (Exception e) {
+                LOGGER.error("context", e);
+            }finally{
                 if(fos!=null)
                     try {
                         fos.close();
@@ -70,8 +72,6 @@ public class App {
                     } catch (IOException e) {
                         LOGGER.error("context", e);
                     }
-            }catch (Exception e) {
-                LOGGER.error("context", e);
             }
         }
 

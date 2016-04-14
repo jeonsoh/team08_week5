@@ -67,8 +67,8 @@ public class App {
 
     public static void main(String[] args) {
         for(int i =0;i<args.length;i++){
-            new App(args[i],i);
-            App.appRun();
+            App app=new App(args[i],i);
+            app.appRun();
         }
     }
 

@@ -14,7 +14,7 @@ public class App {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         FileInputStream fis = null;
         FileOutputStream fos =null;
@@ -36,20 +36,13 @@ public class App {
                 value=new String(buf, "UTF-8");
 
                 appRun(value);
-                fos.close();
-                fis.close();
-
-            }catch(IOException e){
-                LOGGER.info(e.toString());
-                throw  e;
-            }catch (Exception e) {
-                LOGGER.info(e.toString());
-            }finally{
-
                 if(fos!=null)
                     fos.close();
                 if(fis!=null)
                     fis.close();
+
+            }catch (Exception e) {
+                LOGGER.info(e.toString());
             }
         }
 

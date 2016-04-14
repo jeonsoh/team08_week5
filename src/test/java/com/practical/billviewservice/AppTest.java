@@ -38,7 +38,7 @@ public class AppTest extends TestCase {
         try {
             App.main(userfile);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }catch (Exception e){
             throw new IOException(e);
         }

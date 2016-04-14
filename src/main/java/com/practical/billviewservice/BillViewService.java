@@ -11,9 +11,6 @@ public class BillViewService {
     private Calculator myCalculator;
     private static final Logger LOGGER = LoggerFactory.getLogger(BillViewService.class);
 
-    public BillViewService() {
-           
-    }
 
     public BillViewService( User user, Plan plan, Calculator caculator ) {
         this.myUser = user;

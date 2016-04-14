@@ -4,7 +4,6 @@ package com.practical.billviewservice;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import org.slf4j.Logger;
@@ -14,51 +13,14 @@ import org.slf4j.LoggerFactory;
 public class App {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
-    private static Scanner scan;
-    public static void main(String[] args) throws IOException  {
-        if(args[0]==null)
-        {
-            User myUser = new User();
-            Plan myPlan;
-            scan = new Scanner(System.in);
 
-            LOGGER.info("계획을 정해주세요 (GOLD? SILVER?) :");
-            String plan = scan.next();
-            if("GOLD".equalsIgnoreCase(plan)){
-                myPlan = new Gold();
-            }else if("SILVER".equalsIgnoreCase(plan)){
-                myPlan = new Silver();
-            }else{
-                throw new IllegalStateException("서비스 하지 않는 계획입니다.");
-            }
-            myUser.setMyPlantype(myPlan);
+    public static void main(String[] args) throws IOException {
 
-            LOGGER.info("사용자가 이용 시간 ? :");
-            myUser.setMyMiniUsed(scan.nextInt());
-
-            LOGGER.info("사용자가 이용한 전화선 수? : ");
-            myUser.setMyLineNum(scan.nextInt());
-
-            LOGGER.info("사용자의 이름은? : ");
-            myUser.setMyName(scan.next());
-
-            Calculator myCalculator = new Calculator(myUser, myPlan);
-            BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
-            billviewsystem.showUser();
-            billviewsystem.showPlan();
-            billviewsystem.showCalculator();
-            billviewsystem.showTotalCalculator();
-        }else{
-            new App(args);
-        }
-    }
-    public App(String args[]) throws IOException{
         FileInputStream fis = null;
         FileOutputStream fos =null;
         String value = null;
+        
         for(int i =0;i<args.length;i++){
-
-
             try{
 
                 fis = new FileInputStream(args[i]);
@@ -74,6 +36,8 @@ public class App {
                 value=new String(buf, "UTF-8");
 
                 appRun(value);
+                fos.close();
+                fis.close();
 
             }catch(IOException e){
                 LOGGER.info(e.toString());
@@ -89,9 +53,7 @@ public class App {
             }
         }
 
-        
     }
-
 
     private static void appRun(String line) {
         StringTokenizer parser = new StringTokenizer(line, " ");

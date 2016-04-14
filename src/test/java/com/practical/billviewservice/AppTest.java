@@ -33,11 +33,11 @@ public class AppTest extends TestCase {
     @Test
     public void testApp() throws IOException {
         String userfile[]= new String[4];
-        String filepath ="user/";
-        userfile[0] = filepath+"user1.txt";
-        userfile[1] = filepath+"user2.txt";
-        userfile[2] = filepath+"user3.txt";
-        userfile[3] = filepath+"user4.txt";
+        
+        userfile[0] = "user1.txt";
+        userfile[1] = "user2.txt";
+        userfile[2] = "user3.txt";
+        userfile[3] = "user4.txt";
         
         App.main(userfile);
        

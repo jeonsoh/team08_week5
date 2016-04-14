@@ -28,6 +28,8 @@
 			<artifactId>slf4j-jdk14</artifactId>
 			<version>1.7.7</version>
 		</dependency>
+		
+		
 	</dependencies>
 	<profiles>
 		<profile>
@@ -47,6 +49,13 @@
 		</profile>
 	</profiles>
 	<build>
+		<!-- <directory>${project.basedir}/target</directory>
+		<outputDirectory>${project.build.directory}/classes</outputDirectory>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+		<scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory> 사용 안함 -->
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -55,11 +64,7 @@
 				<directory>src/main/resource-${env}</directory>
 			</resource>
 		</resources>
-
-
 		<plugins>
-		    
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -68,18 +73,18 @@
 				<configuration>
 					<finalName>${jar.name}</finalName>
 					<!-- jar 파일이 생성될 폴더 -->
-					<outputDirectory>${deploy.target.dir}</outputDirectory>
+					<!-- <outputDirectory>${deploy.target.dir}</outputDirectory> -->
 					<archive>
 						<manifest>
 							<!-- public static void main() 함수가 있는 클래스 지정 -->
 							<mainClass>com.practical.billviewservice.App</mainClass>
 
 							<!-- jar 파일 META-INF/MANIFEST.MF 에 클래스패스 정보 추가 -->
-							<addClasspath>true</addClasspath>
+							<addClasspath>true</addClasspath> 
 
 							<!-- 클래스패스에 추가시 prefix 설정 ex) log4j-1.2.16.jar -> lib/log4j-1.2.16.jar 
 								로 추가됨 -->
-							<classpathPrefix>${lib.dir}/</classpathPrefix>
+                            <classpathPrefix>${lib.dir}/</classpathPrefix>
 						</manifest>
 					</archive>
 				</configuration>
@@ -118,7 +123,7 @@
 					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 </project>

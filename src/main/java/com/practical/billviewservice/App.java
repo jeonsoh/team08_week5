@@ -1,6 +1,7 @@
 package com.practical.billviewservice;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,9 +24,23 @@ public class App {
 
 
             try{
-
-                fis = new FileInputStream(args[i]);
-                fos = new FileOutputStream("out/out"+i+".txt");
+                
+                String fileName = args[i];
+                
+                // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일 
+                
+                File path = new File("");
+                String realPath = path.getAbsolutePath();
+                String userPath = realPath+"/classes/user/";
+                String outputPath = realPath+"/classes/output/";
+                
+                String userlFile =userPath+fileName;
+                String outputFile =outputPath+"out"+i+".txt";
+                System.out.println(userlFile);
+                System.out.println(outputFile);
+                
+                fis = new FileInputStream(userlFile);
+                fos = new FileOutputStream(outputFile);
 
                 byte[] buf = new byte[1024];
                 int count = 0;

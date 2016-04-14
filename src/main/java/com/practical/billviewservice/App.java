@@ -30,14 +30,15 @@ public class App {
             }
             
             value=new String(buf, "UTF-8");
-            if(value !=null)
-               appRun(value);
+            appRun(value);
             
-        }catch(IOException e){
+        }catch(Exception e){
             LOGGER.info(e.toString());
         }finally{
-            fos.close();
-            fis.close();
+            if(fos!=null)
+                fos.close();
+            if(fis!=null)
+                fis.close();
         }
       
     }

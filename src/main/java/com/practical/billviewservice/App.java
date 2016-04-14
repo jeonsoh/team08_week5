@@ -10,27 +10,27 @@ import org.slf4j.LoggerFactory;
 
 public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(BillViewService.class);
+    private static BufferedReader in;
     public static void main(String[] args) {
-        BufferedReader in=null;
+        
         
         try{
             
-            in= new BufferedReader(new FileReader(args[0]));
+            in = new BufferedReader(new FileReader(args[0]));
             String line = in.readLine();
             while(line != null){                                               
                 appRun(line);                                
                 line = in.readLine();
             }
-            
-            
-        }catch(IOException e){
-            LOGGER.info(e.toString());
-        }finally{
             try {
                 in.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            
+            
+        }catch(IOException e){
+            LOGGER.info(e.toString());
         }
       
     }

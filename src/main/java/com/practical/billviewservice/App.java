@@ -27,20 +27,25 @@ public class App {
                 while(parser.hasMoreTokens()){
                     String word = parser.nextToken().toUpperCase();
                     
-                    if(cnt==0){
-                        if(word.equalsIgnoreCase("GOLD")){
-                            myPlan = new Gold();    
-                        }else if(word.equalsIgnoreCase("SILVER"))
+                    switch(cnt){
+                    case 0:
+                        if("GOLD".equalsIgnoreCase(word)){
+                        myPlan = new Gold();    
+                        }else if("SILVER".equalsIgnoreCase(word))
                         {
                             myPlan = new Silver();
                         }        
                         myUser.setMyPlantype(myPlan);
-                    }else if(cnt==1){   
+                        break;
+                    case 1:   
                         myUser.setMyMiniUsed(Integer.valueOf(word));
-                    }else if(cnt==2){
+                        break;
+                    case 2:
                         myUser.setMyLineNum(Integer.valueOf(word));
-                    }else if(cnt==3){
+                        break;
+                    case 3:
                         myUser.setMyName(word);
+                        break;
                     }
                     cnt++;                    
                     if(cnt==4)

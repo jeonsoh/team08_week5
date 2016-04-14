@@ -19,8 +19,8 @@ public class App {
         FileInputStream fis = null;
         FileOutputStream fos =null;
         String value = null;
-        
         for(int i =0;i<args.length;i++){
+
             try{
 
                 fis = new FileInputStream(args[i]);
@@ -43,7 +43,7 @@ public class App {
                 LOGGER.info(e.toString());
                 throw  e;
             }catch (Exception e) {
-                throw new IOException(e);
+                LOGGER.info(e.toString());
             }finally{
 
                 if(fos!=null)

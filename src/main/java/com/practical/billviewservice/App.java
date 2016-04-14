@@ -17,8 +17,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        FileInputStream fis = null;
-        FileOutputStream fos =null;
+        
         String value = null;
         String fileName=null;
         String realPath=null;
@@ -48,9 +47,9 @@ public class App {
                 String outputFile =outputPath+"out"+i+".txt";
 
 
-                fis = new FileInputStream(userlFile);
-                fos = new FileOutputStream(outputFile);
-
+                FileInputStream fis  = new FileInputStream(userlFile);
+                FileOutputStream fos = new FileOutputStream(outputFile);
+                               
                 byte[] buf = new byte[1024];
                 int count = 0;
 
@@ -62,10 +61,7 @@ public class App {
 
                 appRun(value);
 
-            }catch (Exception e) {
-                LOGGER.error("context", e);
-            }finally{
-
+                
                 if(fos!=null)
                     try {
                         fos.close();
@@ -78,6 +74,8 @@ public class App {
                     } catch (IOException e) {
                         LOGGER.error("context", e);
                     }
+            }catch (Exception e) {
+                LOGGER.error("context", e);
             }
         }
 

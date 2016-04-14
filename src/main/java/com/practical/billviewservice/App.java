@@ -25,21 +25,18 @@ public class App {
         FileOutputStream fos =null;
         for(int i =0;i<args.length;i++){
             try{
-
-                String fileName = args[i];                 
+            
                                
-                // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일 
-
-                
+                // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일                 
                 File path = new File("");
                
                 if("--file".equals(args[0])){
-                    fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+fileName);
+                    fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args[i]);
                     fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+i+".txt");
                     
                 }else{
                     
-                    fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+fileName);
+                    fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+args[i]);
                     fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/user/"+"out"+i+".txt");
                    
                 }
@@ -58,9 +55,15 @@ public class App {
             }catch (Exception e) {
                 LOGGER.error("context", e);
             }finally{
-                if(fos!=null || fis!=null)
+                if(fos!=null )
                     try {
                         fos.close();
+                        fis.close();
+                    } catch (IOException e) {                        
+                        LOGGER.error("context", e);
+                    }
+                if(fis!=null)
+                    try {
                         fis.close();
                     } catch (IOException e) {                        
                         LOGGER.error("context", e);

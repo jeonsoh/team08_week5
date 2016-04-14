@@ -44,6 +44,7 @@ public class App {
                 fos.write(buf, 0, count);
             }
             appSet(new String(buf, "UTF-8"));
+            
         }catch (Exception e) {
             LOGGER.error("Exception Error", e);
         }finally{

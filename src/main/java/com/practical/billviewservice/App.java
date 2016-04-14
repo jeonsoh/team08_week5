@@ -35,8 +35,11 @@ public class App {
             
         }catch(IOException e){
             LOGGER.info(e.toString());
-            throw new IOException();
+            throw  e;
+        }catch (Exception e) {
+            throw new IOException(e);
         }finally{
+        
             if(fos!=null)
                 fos.close();
             if(fis!=null)

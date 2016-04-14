@@ -20,24 +20,34 @@ public class App {
         FileInputStream fis = null;
         FileOutputStream fos =null;
         String value = null;
+        String fileName=null;
+        String realPath=null;
+        String userPath=null;
+        String outputPath=null;
         for(int i =0;i<args.length;i++){
-
-
             try{
-                
-                String fileName = args[i];
-                
+
+
+                fileName = args[i];
+                System.out.println(args[i]);
+
                 // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일 
-                
+
                 File path = new File("");
-                String realPath = path.getAbsolutePath();
-                String userPath = realPath+"/classes/user/";
-                String outputPath = realPath+"/classes/output/";
-                
+                if(args[0].equals("--file")){
+                    realPath = path.getAbsolutePath();
+                    userPath = realPath+"/classes/user/";
+                    outputPath = realPath+"/classes/output/";
+                }else{
+                    realPath = path.getAbsolutePath();
+                    userPath = realPath+"/src/main/resources/user/";
+                    outputPath = realPath+"/src/main/resources/user/";
+                }
+
                 String userlFile =userPath+fileName;
                 String outputFile =outputPath+"out"+i+".txt";
-                                
-                
+
+
                 fis = new FileInputStream(userlFile);
                 fos = new FileOutputStream(outputFile);
 
@@ -60,7 +70,7 @@ public class App {
                     try {
                         fos.close();
                     } catch (IOException e) {                        
-                         LOGGER.error("context", e);
+                        LOGGER.error("context", e);
                     }
                 if(fis!=null)
                     try {
@@ -80,22 +90,22 @@ public class App {
 
         while(parser.hasMoreTokens()){
             String word = parser.nextToken().toUpperCase(); 
-             if("GOLD".equalsIgnoreCase(word)){
-                 myPlan = new Gold();    
-             }else if("SILVER".equalsIgnoreCase(word))
-             {
-                 myPlan = new Silver();
-             }        
-             myUser.setMyPlantype(myPlan);
-             
-             word=parser.nextToken().toUpperCase();
-             myUser.setMyMiniUsed(Integer.valueOf(word));
-             
-             word=parser.nextToken().toUpperCase();
-             myUser.setMyLineNum(Integer.valueOf(word));
-             
-             word=parser.nextToken().toUpperCase();             
-             myUser.setMyName(word);
+            if("GOLD".equalsIgnoreCase(word)){
+                myPlan = new Gold();    
+            }else if("SILVER".equalsIgnoreCase(word))
+            {
+                myPlan = new Silver();
+            }        
+            myUser.setMyPlantype(myPlan);
+
+            word=parser.nextToken().toUpperCase();
+            myUser.setMyMiniUsed(Integer.valueOf(word));
+
+            word=parser.nextToken().toUpperCase();
+            myUser.setMyLineNum(Integer.valueOf(word));
+
+            word=parser.nextToken().toUpperCase();             
+            myUser.setMyName(word);
         }
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);

@@ -145,7 +145,7 @@ public class AppGoldTest extends TestCase {
     }
 
     @Test(expected = IllegalStateException.class)
-    public void testMyMiniUsedException3(){
+    public void testMyMiniUsedException(){
         try{
             myPlan = new Gold();
             User user = new User( myPlan, 2, 2, name );
@@ -156,6 +156,35 @@ public class AppGoldTest extends TestCase {
             LOGGER.info(e.getMessage());
         }
         assertEquals("사용 시간은 음수일 수 없습니다.", ex.getMessage());
+
+    }
+    @Test(expected = IllegalStateException.class)
+    public void testMyLineException(){
+        try{
+            myPlan = new Gold();
+            User user = new User( myPlan, 2, 2, name );
+            user.setMyLineNum(-3);           
+            
+        }catch(IllegalStateException e){
+            ex = e;
+            LOGGER.info(e.getMessage());
+        }
+        assertEquals("라인의 수는 1 이상이여야 합니다.", ex.getMessage());
+
+    }
+    @Test(expected = IllegalStateException.class)
+    public void testMyMiniUsedException3(){
+        try{
+            myPlan = new Gold();
+            User user = new User( myPlan, 2, 2, name );
+            user.setMyName(null);           
+            
+        }catch(IllegalStateException e){
+            ex = e;
+            LOGGER.info(e.getMessage());
+        }
+        assertEquals("이름이 입력되지 않았습니다.", ex.getMessage());
+        
 
     }
 }

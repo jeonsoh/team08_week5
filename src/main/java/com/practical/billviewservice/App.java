@@ -12,11 +12,11 @@ import org.slf4j.LoggerFactory;
 
 public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
-    FileInputStream fis = null;
     public static void main(String[] args) throws IOException {
         
         FileInputStream fis = null;
         FileOutputStream fos =null;
+        String value = null;
         try{
             
             fis = new FileInputStream("user.txt");
@@ -28,7 +28,8 @@ public class App {
             while ( (count = fis.read(buf) ) != -1) {
                 fos.write(buf, 0, count);
             }
-            String value = new String(buf, "UTF-8");
+            
+            value=new String(buf, "UTF-8");
             if(value !=null)
                appRun(value);
             

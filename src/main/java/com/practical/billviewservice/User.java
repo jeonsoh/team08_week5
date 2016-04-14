@@ -16,6 +16,8 @@ public class User {
         this.myMinitUsed = minitUsed;
         this.myLineNum = lineNum;
         this.myName = name;
+        
+        
     }
 
     public Plan getMyPlantype() {

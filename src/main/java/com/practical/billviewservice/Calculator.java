@@ -10,9 +10,7 @@ public class Calculator {
     private int familyDiscountMyLine;
     private int addedMyLine;
 
-    private Calculator() {
-
-    }
+   
 
     public Calculator(User user, Plan plan) {
         this.myUser = user;

@@ -130,7 +130,8 @@ public class AppSilverTest extends TestCase {
         Calculator calculator = new Calculator( user, plan );
         assertEquals( 109.95, calculator.calculatorSum() );
      }
-    @Test
+    
+    @Test(expected = IllegalStateException.class)
     public void testException(){
         int usedMiniute = -3;
         int useLineNumber = -5;

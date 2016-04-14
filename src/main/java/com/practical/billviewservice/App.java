@@ -72,7 +72,6 @@ public class App {
                     myPlan = new Gold();    
                 }else if("SILVER".equalsIgnoreCase(word))
                 {
-                    System.out.println(word);
                     myPlan = new Silver();
                 }        
                 myUser.setMyPlantype(myPlan);

@@ -32,9 +32,10 @@ public class AppTest extends TestCase {
      */
     @Test
     public void testApp() throws IOException {
-        String userfile[]= new String[2];
-        userfile[0] = "user.txt";
+        String userfile[]= new String[3];
+        userfile[0] = "user1.txt";
         userfile[1] = "user2.txt";
+        userfile[2] = "user3.txt";
         try {
             App.main(userfile);
         } catch (IOException e) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="com.practical.billviewservice.AppSilverTest" time="0.006" errors="0" skipped="0">
+<testsuite tests="9" failures="0" name="com.practical.billviewservice.AppSilverTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib"/>
@@ -26,7 +26,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/withGod/eclipse/workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf8127885453996680620.tmp"/>
+    <property name="classworlds.conf" value="/Users/withGod/eclipse/workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf2237493476727608184.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/withGod/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="ko"/>
     <property name="user.language.format" value="en"/>
@@ -64,12 +64,12 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="com.practical.billviewservice.AppSilverTest" name="testException" time="0"/>
-  <testcase classname="com.practical.billviewservice.AppSilverTest" name="testBasicLineExMinNoDC" time="0.001"/>
+  <testcase classname="com.practical.billviewservice.AppSilverTest" name="testBasicLineExMinNoDC" time="0"/>
   <testcase classname="com.practical.billviewservice.AppSilverTest" name="testaddLineDC" time="0"/>
   <testcase classname="com.practical.billviewservice.AppSilverTest" name="testBasicLine" time="0"/>
   <testcase classname="com.practical.billviewservice.AppSilverTest" name="testaddLineExMinDC" time="0"/>
-  <testcase classname="com.practical.billviewservice.AppSilverTest" name="testbillViewServiceSilver" time="0.004"/>
-  <testcase classname="com.practical.billviewservice.AppSilverTest" name="testCalculatorTotalSilver" time="0.001"/>
+  <testcase classname="com.practical.billviewservice.AppSilverTest" name="testbillViewServiceSilver" time="0.001"/>
+  <testcase classname="com.practical.billviewservice.AppSilverTest" name="testCalculatorTotalSilver" time="0"/>
   <testcase classname="com.practical.billviewservice.AppSilverTest" name="testaddLine" time="0"/>
   <testcase classname="com.practical.billviewservice.AppSilverTest" name="testaddLineExMinNoDC" time="0"/>
 </testsuite>

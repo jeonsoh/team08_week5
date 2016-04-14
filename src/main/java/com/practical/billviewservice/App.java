@@ -29,7 +29,7 @@ public class App {
 
 
                 fileName = args[i];
-                System.out.println(args[i]);
+                
 
                 // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일 
 
@@ -66,13 +66,13 @@ public class App {
                 LOGGER.error("context", e);
             }finally{
 
-                
+                if(fos!=null)
                     try {
                         fos.close();
                     } catch (IOException e) {                        
                         LOGGER.error("context", e);
                     }
-                
+                if(fis!=null)
                     try {
                         fis.close();
                     } catch (IOException e) {

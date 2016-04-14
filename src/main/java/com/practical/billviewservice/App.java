@@ -21,6 +21,7 @@ public class App {
         String value = null;
         for(int i =0;i<args.length;i++){
 
+
             try{
 
                 fis = new FileInputStream(args[i]);
@@ -36,13 +37,25 @@ public class App {
                 value=new String(buf, "UTF-8");
 
                 appRun(value);
-                if(fos!=null)
-                    fos.close();
-                if(fis!=null)
-                    fis.close();
 
+            }catch(IOException e){
+                LOGGER.info(e.toString());                
             }catch (Exception e) {
                 LOGGER.info(e.toString());
+            }finally{
+
+                if(fos!=null)
+                    try {
+                        fos.close();
+                    } catch (IOException e) {                        
+                        e.printStackTrace();
+                    }
+                if(fis!=null)
+                    try {
+                        fis.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
             }
         }
 

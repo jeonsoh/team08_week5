@@ -14,7 +14,9 @@ import org.slf4j.LoggerFactory;
 public class App {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
-
+    User myUser = new User();
+    Plan myPlan = null;
+    
     private App(String args,int cnt){
 
         FileInputStream fis =null;
@@ -41,21 +43,21 @@ public class App {
             for(int count=0; count>=0; count = fis.read(buf) ) {
                 fos.write(buf, 0, count);
             }
-            appRun(new String(buf, "UTF-8"));
+            appSet(new String(buf, "UTF-8"));
         }catch (Exception e) {
-            LOGGER.error("context", e);
+            LOGGER.error("Exception Error", e);
         }finally{
             if(fos!=null )
                 try {
                     fos.close();
                 } catch (IOException e) {                        
-                    LOGGER.error("context", e);
+                    LOGGER.error("FileOutputStream Error", e);
                 }
             if(fis!=null)
                 try {
                     fis.close();
                 } catch (IOException e) {                        
-                    LOGGER.error("context", e);
+                    LOGGER.error("FileInputStream Error", e);
                 }
         }
     }
@@ -65,13 +67,13 @@ public class App {
     public static void main(String[] args) {
         for(int i =0;i<args.length;i++){
             App app =new App(args[i],i);
+            app.appRun();
         }
     }
 
-    private static void appRun(String line) {
+    private void appSet(String line){
         StringTokenizer parser = new StringTokenizer(line, " ");
-        User myUser = new User();
-        Plan myPlan = null;
+        
 
         while(parser.hasMoreTokens()){
             String word = parser.nextToken().toUpperCase(); 
@@ -92,6 +94,9 @@ public class App {
             word=parser.nextToken().toUpperCase();             
             myUser.setMyName(word);
         }
+    }
+    private  void appRun() {
+        
         Calculator myCalculator = new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
         billviewsystem.showUser();

@@ -38,23 +38,21 @@ public class App {
 
                 appRun(value);
 
-            }catch(IOException e){
-                LOGGER.info(e.toString());                
             }catch (Exception e) {
-                LOGGER.info(e.toString());
+                LOGGER.error("context", e);
             }finally{
 
                 if(fos!=null)
                     try {
                         fos.close();
                     } catch (IOException e) {                        
-                        e.printStackTrace();
+                         LOGGER.error("context", e);
                     }
                 if(fis!=null)
                     try {
                         fis.close();
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        LOGGER.error("context", e);
                     }
             }
         }
@@ -64,11 +62,10 @@ public class App {
     private static void appRun(String line) {
         StringTokenizer parser = new StringTokenizer(line, " ");
         User myUser = new User();
-        Plan myPlan = null; 
-        String word = null;
+        Plan myPlan = null;
 
         while(parser.hasMoreTokens()){
-             word = parser.nextToken().toUpperCase(); 
+            String word = parser.nextToken().toUpperCase(); 
              if("GOLD".equalsIgnoreCase(word)){
                  myPlan = new Gold();    
              }else if("SILVER".equalsIgnoreCase(word))

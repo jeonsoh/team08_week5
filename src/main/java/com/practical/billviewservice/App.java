@@ -30,10 +30,12 @@ public class App {
             }
             
             value=new String(buf, "UTF-8");
+                    
             appRun(value);
             
-        }catch(Exception e){
+        }catch(IOException e){
             LOGGER.info(e.toString());
+            throw new IOException();
         }finally{
             if(fos!=null)
                 fos.close();
@@ -48,8 +50,10 @@ public class App {
         int cnt=1;
         User myUser = new User();
         Plan myPlan = null; 
+        
         while(parser.hasMoreTokens()){
-            String word = parser.nextToken().toUpperCase();  
+            String word = parser.nextToken().toUpperCase(); 
+            
             switch(cnt){
                 case 1:
                     if("GOLD".equalsIgnoreCase(word)){

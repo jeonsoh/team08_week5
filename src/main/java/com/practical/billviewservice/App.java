@@ -13,66 +13,59 @@ import org.slf4j.LoggerFactory;
 
 public class App {
 
-    private App(){
-        
-    }
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-    public static void main(String[] args) {
+    private App(String args,int cnt){
 
-        
         FileInputStream fis =null;
         FileOutputStream fos =null;
-        for(int i =0;i<args.length;i++){
-            try{
-            
-                               
-                // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일                 
-                File path = new File("");
-               
-                if("--file".equals(args[0])){
-                    if(i>0){
-                        fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args[i]);
-                        fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+i+".txt");
-                    }
-                }else{
-                    
-                    fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+args[i]);
-                    fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/user/"+"out"+i+".txt");
-                   
-                }
-                          
-                byte[] buf = new byte[1024];
-                
-                
-                for(int count=0; count>=0; count = fis.read(buf) ) {
-                    fos.write(buf, 0, count);
-                }
+        byte[] buf = new byte[1024];
+        try{
 
-                
 
-                appRun(new String(buf, "UTF-8"));
-   
-            }catch (Exception e) {
-                LOGGER.error("context", e);
-            }finally{
-                if(fos!=null )
-                    try {
-                        fos.close();
-                        fis.close();
-                    } catch (IOException e) {                        
-                        LOGGER.error("context", e);
-                    }
-                if(fis!=null)
-                    try {
-                        fis.close();
-                    } catch (IOException e) {                        
-                        LOGGER.error("context", e);
-                    }
-                
+            // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일                 
+            File path = new File("");
+
+            if("--file".equals(args)){
+                if(cnt>0){
+                    fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args);
+                    fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+cnt+".txt");
+                }
+            }else{
+
+                fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+args);
+                fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/user/"+"out"+cnt+".txt");
+
             }
-        }
 
+            for(int count=0; count>=0; count = fis.read(buf) ) {
+                fos.write(buf, 0, count);
+            }
+            appRun(new String(buf, "UTF-8"));
+        }catch (Exception e) {
+            LOGGER.error("context", e);
+        }finally{
+            if(fos!=null )
+                try {
+                    fos.close();
+                } catch (IOException e) {                        
+                    LOGGER.error("context", e);
+                }
+            if(fis!=null)
+                try {
+                    fis.close();
+                } catch (IOException e) {                        
+                    LOGGER.error("context", e);
+                }
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+        for(int i =0;i<args.length;i++){
+            App app =new App(args[i],i);
+        }
     }
 
     private static void appRun(String line) {

@@ -149,11 +149,11 @@ public class AppGoldTest extends TestCase {
         try{
             myPlan = new Gold();
             User user = new User( myPlan, 2, 2, name );
-            user.setMyMiniUsed(-3);           //얘도 돌았는데
+            user.setMyMiniUsed(-3);           
             
         }catch(IllegalStateException e){
             ex = e;
-            LOGGER.info(e.getMessage());//여기돌았따
+            LOGGER.info(e.getMessage());
         }
         assertEquals("사용 시간은 음수일 수 없습니다.", ex.getMessage());
 

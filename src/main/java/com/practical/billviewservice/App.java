@@ -17,7 +17,7 @@ public class App {
     private static User myUser = new User();
     private static Plan myPlan = null;
     
-    private App(String args,int cnt){
+    private App(String args,int cnt, boolean isFile){
 
         FileInputStream fis =null;
         FileOutputStream fos =null;
@@ -29,10 +29,10 @@ public class App {
             // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일                 
             File path = new File("");
 
-            if("--file".equals(args)){
+            
+            if(isFile){
                 if(cnt>0){
-                    
-                    System.out.printf("?? %d %s",cnt, args);
+
                     fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args);
                     fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+cnt+".txt");
 
@@ -70,8 +70,13 @@ public class App {
 
 
     public static void main(String[] args) {
+        boolean isFile = false;
+        if("--file".equals(args[0])){
+             isFile = true;
+        }
+         
         for(int i =0;i<args.length;i++){
-            App app=new App(args[i],i);
+            App app=new App(args[i],i,isFile);
             app.appRun();
         }
     }

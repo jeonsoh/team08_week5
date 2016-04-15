@@ -154,6 +154,9 @@ public class AppGoldTest extends TestCase {
         }catch(IllegalStateException e){
             ex = e;
             LOGGER.info(ex.getMessage());
+            
+        }finally{
+            assertEquals("사용 시간은 음수일 수 없습니다.", ex.getMessage());
         }
        
 
@@ -168,6 +171,9 @@ public class AppGoldTest extends TestCase {
         }catch(IllegalStateException e){
             ex = e;
             LOGGER.info(ex.getMessage());
+            
+        }finally{
+            assertEquals("라인의 수는 1 이상이여야 합니다.", ex.getMessage());
         }
         
 
@@ -182,6 +188,9 @@ public class AppGoldTest extends TestCase {
         }catch(IllegalStateException e){
             ex = e;
             LOGGER.info(ex.getMessage());
-        } 
+            
+        }finally{
+            assertEquals("이름이 입력되지 않았습니다.", ex.getMessage());
+        }
     }
 }

@@ -166,8 +166,8 @@ public class AppGoldTest extends TestCase {
             user.setMyLineNum(-3);           
             
         }catch(IllegalStateException e){
-            ex = e;
-            LOGGER.info(e.getMessage());
+//            ex = e;
+//            LOGGER.info(e.getMessage());
         }
         assertEquals("라인의 수는 1 이상이여야 합니다.", ex.getMessage());
 
@@ -180,8 +180,8 @@ public class AppGoldTest extends TestCase {
             user.setMyName(null);           
             
         }catch(IllegalStateException e){
-            ex = e;
-            LOGGER.info(e.getMessage());
+//            ex = e;
+//            LOGGER.info(e.getMessage());
         }
         assertEquals("이름이 입력되지 않았습니다.", ex.getMessage());
         

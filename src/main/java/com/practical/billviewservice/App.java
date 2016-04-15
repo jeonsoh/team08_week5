@@ -41,7 +41,12 @@ public class App {
                 fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/output/"+"out"+(cnt+1)+".txt");
 
             }
-            if(!isFile || isFile&&(cnt>0)){
+            if(!isFile){
+                for(int count=0; count>=0; count = fis.read(buf) ) {
+                    fos.write(buf, 0, count);
+                }
+                appRun(new String(buf, "UTF-8"));
+            }else if(isFile&&(cnt>0)){
                 for(int count=0; count>=0; count = fis.read(buf) ) {
                     fos.write(buf, 0, count);
                 }
@@ -50,21 +55,18 @@ public class App {
 
 
         }catch (Exception e) {
-            LOGGER.error("Exception Error", e);
-            
+            LOGGER.error("Exception ", e);
+
         }finally{
-            if(fos!=null )
-                try {
-                    fos.close();
-                } catch (IOException e) {                        
-                    LOGGER.error("FileOutputStream Error", e);
-                }
-            if(fis!=null)
-                try {
-                    fis.close();
-                } catch (IOException e) {                        
-                    LOGGER.error("FileInputStream Error", e);
-                }
+            try{
+                if(fos!=null ) fos.close();
+                if(fis!=null)     fis.close();
+
+            } catch (IOException e) {                        
+                LOGGER.error("Stream Exception", e);
+            }
+
+
         }
     }
 

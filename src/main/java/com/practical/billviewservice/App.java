@@ -17,13 +17,13 @@ public class App {
 
     private App(String baseDir, String args,int cnt, boolean isFile){
 
-        FileInputStream fis =null;
-        FileOutputStream fos =null;
+
 
         byte[] buf = new byte[1024];
         try{
 
-
+            FileInputStream fis =null;
+            FileOutputStream fos =null;
             // String s= System.getProperty("user.dir"); getAbsolutePath 와 동일                 
             File path = new File("");
 
@@ -47,24 +47,28 @@ public class App {
                 }
                 appRun(new String(buf, "UTF-8"));
             }
-
-
-        }catch (Exception e) {
-            LOGGER.error("Exception Error", e);
-            
-        }finally{
-            if(fos!=null )
+            if(fos!=null ){
                 try {
                     fos.close();
                 } catch (IOException e) {                        
                     LOGGER.error("FileOutputStream Error", e);
                 }
-            if(fis!=null)
+               }
+            
+            if(fis!=null){
                 try {
                     fis.close();
                 } catch (IOException e) {                        
                     LOGGER.error("FileInputStream Error", e);
                 }
+            }
+
+
+        }catch (Exception e) {
+            LOGGER.error("Exception Error", e);
+
+        }finally{
+            
         }
     }
 

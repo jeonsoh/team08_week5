@@ -8,7 +8,7 @@ public class User {
     private String myName;
 
     public User(){
-        throw new UnsupportedOperationException();
+    
     }
     
     public User( Plan myPlan, int minitUsed, int lineNum, String name ) {

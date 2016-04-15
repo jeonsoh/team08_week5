@@ -8,16 +8,17 @@ public class User {
     private String myName;
 
     public User(){
-    
+        this.myPlantype = null;
+        this.myMinitUsed = 0;
+        this.myLineNum = 0;
+        this.myName = null;
     }
     
     public User( Plan myPlan, int minitUsed, int lineNum, String name ) {
         this.myPlantype = myPlan;
         this.myMinitUsed = minitUsed;
         this.myLineNum = lineNum;
-        this.myName = name;
-        
-        
+        this.myName = name;   
     }
 
     public Plan getMyPlantype() {

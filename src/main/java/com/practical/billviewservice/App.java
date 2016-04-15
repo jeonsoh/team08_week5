@@ -61,7 +61,6 @@ public class App {
         }finally{
 
             try{   
-                fos=null;
                 if(fos!=null){
                     fos.close();
                 }

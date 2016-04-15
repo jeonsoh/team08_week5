@@ -48,7 +48,7 @@ public class AppTest extends TestCase {
         String[] userfile= new String[4];
         
         userfile[0] = "--file";
-        userfile[1] = "user1.txt";
+        userfile[1] = "user5.txt";
         
         App.main(userfile);
        

@@ -68,7 +68,7 @@ public class App {
     }
 
     /**
-     * command line에서 처리되는 부분 과 test로 잡아준 부
+     * jar 로 command line에서 처리되는부분과 test로 하는 부분 
      * @param args
      */
     public static void main(String[] args) {

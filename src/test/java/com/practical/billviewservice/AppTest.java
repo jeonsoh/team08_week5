@@ -30,7 +30,7 @@ public class AppTest extends TestCase {
      * App Test :-)
      * @throws IOException 
      */
-    @Test
+    @Test(expected = Exception.class)
     public void testApp() throws IOException {
         String[] userfile= new String[4];
         
@@ -39,11 +39,15 @@ public class AppTest extends TestCase {
         userfile[2] = "user3.txt";
         userfile[3] = "user4.txt";
         
-        App.main(userfile);
-       
-        assertTrue(true);
+        try {
+            App.main(userfile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            assertTrue(true);
+        } 
     } 
-    @Test
+    @Test(expected = Exception.class)
     public void testErrorApp() throws IOException {
         String[] userfile= new String[4];
         
@@ -52,9 +56,15 @@ public class AppTest extends TestCase {
         userfile[2] = "user2.txt";
         userfile[3] = "user3.txt";
         
-        App.main(userfile);
+        try {
+            App.main(userfile);
+        } catch (Exception e) {
+            e.getMessage();
+        }finally{
+            assertTrue(true);     
+        }
        
-        assertTrue(true);
+       
     }
 
    

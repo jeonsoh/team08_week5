@@ -17,7 +17,7 @@ public class App {
     private static User myUser = new User();
     private static Plan myPlan = null;
     
-    private App(String args,int cnt){
+    private App(String args,int cnt) throws Exception{
 
         FileInputStream fis =null;
         FileOutputStream fos =null;
@@ -31,6 +31,8 @@ public class App {
 
             if("--file".equals(args)){
                 if(cnt>0){
+                    
+                    System.out.printf("?? %d %s",cnt, args);
                     fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args);
                     fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+cnt+".txt");
 
@@ -38,7 +40,7 @@ public class App {
             }else{
 
                 fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+args);
-                fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/user/"+"out"+cnt+".txt");
+                fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/output/"+"out"+cnt+".txt");
 
             }
 
@@ -49,6 +51,7 @@ public class App {
             
         }catch (Exception e) {
             LOGGER.error("Exception Error", e);
+            throw e;
         }finally{
             if(fos!=null )
                 try {
@@ -67,7 +70,7 @@ public class App {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         for(int i =0;i<args.length;i++){
             App app=new App(args[i],i);
             app.appRun();

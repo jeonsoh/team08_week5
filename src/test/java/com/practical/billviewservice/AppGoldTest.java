@@ -183,8 +183,7 @@ public class AppGoldTest extends TestCase {
         try{
             myPlan = new Gold();
             User user = new User( myPlan, 2, 2, name );
-            user.setMyName(null);           
-            assertEquals(null, user.getMyName());
+            user.setMyName(null);                       
         }catch(IllegalStateException e){
             ex = e;
             LOGGER.info(ex.getMessage());

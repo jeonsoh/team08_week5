@@ -30,7 +30,7 @@ public class App {
             
             if(isFile){
                 if(cnt>0){
-                    System.out.println(path.getAbsolutePath()+baseDir+"/classes/user/"+args);
+
                     fis  = new FileInputStream(path.getAbsolutePath()+baseDir+"/classes/user/"+args);
                     fos = new FileOutputStream(path.getAbsolutePath()+baseDir+"/classes/output/"+"out"+cnt+".txt");
                     for(int count=0; count>=0; count = fis.read(buf) ) {

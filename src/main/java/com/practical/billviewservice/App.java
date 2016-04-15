@@ -60,7 +60,8 @@ public class App {
 
         }finally{
             try{
-                if(fos!=null ){
+                
+                if(fos!=null){
                     fos.close();
                 }
                 if(fis!=null){
@@ -73,7 +74,7 @@ public class App {
             }finally{
                 LOGGER.info("file 입출력 끝");
             }
-
+            LOGGER.info("설마?");
 
         }
     }

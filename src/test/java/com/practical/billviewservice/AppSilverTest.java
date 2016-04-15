@@ -147,53 +147,6 @@ public class AppSilverTest extends TestCase {
         assertEquals(-99.05, calculator.calculatorSum() );
     }
     
-    @Test(expected = IllegalStateException.class)
-    public void testMyMiniUsedException(){
-        try{
-            myPlan = new Silver();
-            User user = new User( myPlan, 2, 2, name );
-            user.setMyMiniUsed(-3);           
-            
-        }catch(IllegalStateException e){
-            ex = e;
-            LOGGER.info(ex.getMessage());
-            
-        }finally{
-            assertEquals("사용 시간은 음수일 수 없습니다.", ex.getMessage());
-        }
-       
-
-    }
-    @Test(expected = IllegalStateException.class)
-    public void testMyLineException(){
-        try{
-            myPlan = new Silver();
-            User user = new User( myPlan, 2, 2, name );
-            user.setMyLineNum(-3);           
-            
-        }catch(IllegalStateException e){
-            ex = e;
-            LOGGER.info(ex.getMessage());
-            
-        }finally{
-            assertEquals("라인의 수는 1 이상이여야 합니다.", ex.getMessage());
-        }
-        
-
-    }
-    @Test(expected = IllegalStateException.class)
-    public void testMyMiniUsedException3(){
-        try{
-            myPlan = new Silver();
-            User user = new User( myPlan, 2, 2, name );
-            user.setMyName(null);                       
-        }catch(IllegalStateException e){
-            ex = e;
-            LOGGER.info(ex.getMessage());
-            
-        }finally{
-            assertEquals("이름이 입력되지 않았습니다.", ex.getMessage());
-        }
-    }
+  
    
 }

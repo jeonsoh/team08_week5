@@ -67,9 +67,10 @@ public class App {
                 if(fis!=null){
                     fis.close();
                 }
+                fis.close();
 
-            } catch (IOException e) {                        
-                LOGGER.error("Stream Exception", e);
+            } catch (Exception e) {                        
+                LOGGER.error("Exception 발", e);
             }finally{
                 LOGGER.info("file 입출력 끝");
             }

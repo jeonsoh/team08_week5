@@ -4,7 +4,6 @@ package com.practical.billviewservice;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.StringTokenizer;
 
 import org.slf4j.Logger;

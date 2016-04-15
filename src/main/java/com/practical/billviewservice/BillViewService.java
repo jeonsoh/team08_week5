@@ -27,6 +27,8 @@ public class BillViewService {
             userbuf.append( "Plan : Gold\n" );
         } else if ( this.myUser.getMyPlantype() instanceof Silver ) {
             userbuf.append( "Plan : Silver\n" );
+        }else{
+            userbuf.append( "Plan : None \n" );
         }
 
         userbuf.append( "Minit Used : " + this.myUser.getMyinuteUsed() + "\n" );

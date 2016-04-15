@@ -90,7 +90,7 @@ public class App {
                 App app=new App("",args[i],i,isFile);
                 app.showUser(i);
             }
-        }else if("SILVER".equalsIgnoreCase(args[0]) || "GOLD".equalsIgnoreCase(args[0])){
+        }else if(args[0]!=null){
             for(int i =0;i<args.length;i++){
                 App app=new App("",args[i],i,isFile);
                 app.showUser(i);

@@ -22,7 +22,8 @@ public class Calculator {
             } else if (user.getMyLineNum() < plan.getFamilyDiscountBasic()) {
                 this.familyDiscountMyLine = 0;
                 this.addedMyLine = user.getMyLineNum() - 1;
-            } else if (user.getMyLineNum() >= plan.getFamilyDiscountBasic()) {
+            } 
+            if (user.getMyLineNum() >= plan.getFamilyDiscountBasic()) {
                 this.familyDiscountMyLine = user.getMyLineNum() - plan.getFamilyDiscountBasic();
                 this.addedMyLine = user.getMyLineNum() - this.familyDiscountMyLine - 1;
             }

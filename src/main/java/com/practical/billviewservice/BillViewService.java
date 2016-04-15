@@ -26,7 +26,8 @@ public class BillViewService {
         
         if ( this.myUser.getMyPlantype() instanceof Gold ) {
             userbuf.append( "Plan : Gold\n" );
-        } else if ( this.myUser.getMyPlantype() instanceof Silver ) {
+        } 
+        if ( this.myUser.getMyPlantype() instanceof Silver ) {
             userbuf.append( "Plan : Silver\n" );
         }
 

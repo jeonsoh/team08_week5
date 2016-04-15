@@ -83,8 +83,9 @@ public class App {
         if("--file".equals(args[0])){
             isFile = true;
         }*/
-        new App();
-        
+       App app = new App();
+       app.appRun("GOLD 100 3 길동");
+       app.appRun("SILVER 100 3 길동");
         for(int i =0;i<args.length;i++){
             //App app=new App("",args[i],i,isFile);
           //  App.showUser(i);

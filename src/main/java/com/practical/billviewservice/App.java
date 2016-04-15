@@ -60,14 +60,16 @@ public class App {
 
         }finally{
 
-            try{                
+            try{   
+                fos=null;
                 if(fos!=null){
                     fos.close();
                 }
                 if(fis!=null){
                     fis.close();
                 }
-             
+                
+                fis.close();  //일부러 예외 상황만들기!
 
             } catch (Exception e) {                        
                 LOGGER.error("Exception 발", e);

@@ -59,11 +59,17 @@ public class App {
 
         }finally{
             try{
-                if(fos!=null ) fos.close();
-                if(fis!=null)     fis.close();
+                if(fos!=null ){
+                    fos.close();
+                }
+                if(fis!=null){
+                    fis.close();
+                }
 
             } catch (IOException e) {                        
                 LOGGER.error("Stream Exception", e);
+            }finally{
+                LOGGER.info("file 입출력 끝");
             }
 
 

@@ -19,6 +19,10 @@ public class User {
         this.myMinitUsed = minitUsed;
         this.myLineNum = lineNum;
         this.myName = name;   
+        if(myPlan == null){
+            throw new IllegalStateException( "Plan을 입력하지 않았습니" );
+        }
+            
     }
 
     public Plan getMyPlantype() {
@@ -33,6 +37,7 @@ public class User {
         return myMinitUsed;
     }
 
+    
     public void setMyMiniUsed(int myMiniUsed){
         if(myMiniUsed < 0){
             throw new IllegalStateException( "사용 시간은 음수일 수 없습니다." );

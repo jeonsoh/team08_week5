@@ -51,10 +51,12 @@ public class AppTest extends TestCase {
     } 
     @Test
     public void testErrorApp() throws Exception {
-        String[] userfile= new String[2];
+        String[] userfile= new String[4];
         
         userfile[0] = "--file";
         userfile[1] = "user5.txt";
+        userfile[2] = "user10.txt";
+        userfile[3] = "user5.txt";
         
         App.main(userfile);
        

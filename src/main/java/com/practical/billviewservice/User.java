@@ -19,7 +19,6 @@ public class User {
         this.myMinitUsed = minitUsed;
         this.myLineNum = lineNum;
         this.myName = name;   
-            
     }
 
     public Plan getMyPlantype() {
@@ -27,11 +26,7 @@ public class User {
     }
 
     public void setMyPlantype(Plan myPlantype) {
-        if(myPlantype==null){
-            throw new IllegalStateException( "Plan을 입력하지 않았습니다." );
-        }else{
-            this.myPlantype = myPlantype;
-        }
+        this.myPlantype = myPlantype;
     }
 
     public int getMyinuteUsed() {

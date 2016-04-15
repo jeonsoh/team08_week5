@@ -35,11 +35,9 @@ public class User {
 
     
     public void setMyMiniUsed(int myMiniUsed){
-        if(myMiniUsed < 0){
-            throw new IllegalStateException( "사용 시간은 음수일 수 없습니다." );
-        }else{
+        
             this.myMinitUsed = myMiniUsed;
-        }
+        
     }
 
     public int getMyLineNum() {
@@ -47,11 +45,9 @@ public class User {
     }
 
     public void setMyLineNum(int myLineNum){
-        if(myLineNum <= 0){
-            throw new IllegalStateException("라인의 수는 1 이상이여야 합니다.");
-        }else{
+        
             this.myLineNum = myLineNum;
-        }
+        
     }
 
     public String getMyName() {
@@ -59,10 +55,8 @@ public class User {
     }
 
     public void setMyName(String myName) {
-        if(myName == null){
-            throw new IllegalStateException("이름이 입력되지 않았습니다.");
-        }else{
+        
             this.myName = myName;
-        }
+
     }
 }

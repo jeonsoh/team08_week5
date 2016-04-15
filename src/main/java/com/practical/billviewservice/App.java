@@ -71,7 +71,7 @@ public class App {
                 fis.close();  //일부러 예외 상황만들기!
 
             } catch (Exception e) {                        
-                LOGGER.error("Exception 발", e);
+                LOGGER.info("Exception 발생하엿습니다.", e);
             }finally{
                 LOGGER.info("file 입출력 끝");
             }

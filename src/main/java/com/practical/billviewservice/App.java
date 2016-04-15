@@ -59,8 +59,8 @@ public class App {
             LOGGER.error("Exception ", e);
 
         }finally{
-            try{
-                
+            
+            try{                
                 if(fos!=null){
                     fos.close();
                 }
@@ -74,7 +74,6 @@ public class App {
             }finally{
                 LOGGER.info("file 입출력 끝");
             }
-            LOGGER.info("설마?");
 
         }
     }

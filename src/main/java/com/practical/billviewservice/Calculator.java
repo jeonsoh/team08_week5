@@ -32,7 +32,7 @@ public class Calculator {
     public double calculatorSum() {
 
         this.total = this.myPlan.getBasicMontlyRate() + this.calculateLineBill() + this.calculateMinutesBill();
-        return total;
+        return Math.round(this.total*100d) / 100d;
 
     }
 

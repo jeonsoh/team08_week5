@@ -48,9 +48,10 @@ public class App {
                 appRun(new String(buf, "UTF-8"));
             }
 
-
+            fos.close();
+            fis.close();
         }catch (Exception e) {
-            LOGGER.error("Exception Error", e);
+            LOGGER.error("Exception Error", e);            
         }finally{
             if(fos!=null )
                 try {

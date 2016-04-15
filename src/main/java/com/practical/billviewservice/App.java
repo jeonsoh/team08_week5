@@ -80,9 +80,9 @@ public class App {
             isFile = true;
         }*/
         App.appRun("GOLD 100 3 길동");
+        App.appRun("SILVER 100 3 길동");
         for(int i =0;i<args.length;i++){
             //App app=new App("",args[i],i,isFile);
-            App.appRun("GOLD 100 3 길동");
           //  App.showUser(i);
         }
     }

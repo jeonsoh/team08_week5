@@ -16,6 +16,10 @@ public class App {
 
     //private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
+    private App(){
+        App.appRun("GOLD 100 3 길동");
+        App.appRun("SILVER 100 3 길동");
+    }
     /*private App(String baseDir, String args,int cnt, boolean isFile){
 
         FileInputStream fis =null;
@@ -79,8 +83,8 @@ public class App {
         if("--file".equals(args[0])){
             isFile = true;
         }*/
-        App.appRun("GOLD 100 3 길동");
-        App.appRun("SILVER 100 3 길동");
+        new App();
+        
         for(int i =0;i<args.length;i++){
             //App app=new App("",args[i],i,isFile);
           //  App.showUser(i);

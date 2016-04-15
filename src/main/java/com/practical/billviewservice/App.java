@@ -21,6 +21,7 @@ public class App {
 
         FileInputStream fis =null;
         FileOutputStream fos =null;
+    
         byte[] buf = new byte[1024];
         try{
 
@@ -32,6 +33,7 @@ public class App {
                 if(cnt>0){
                     fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args);
                     fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+cnt+".txt");
+
                 }
             }else{
 

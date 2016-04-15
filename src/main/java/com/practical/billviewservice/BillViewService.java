@@ -23,12 +23,11 @@ public class BillViewService {
         userbuf.append( "\n[User정보]\n" );
         userbuf.append( "Name : " + this.myUser.getMyName() + "\n" );
 
-        if(myUser.getMyPlantype() != null){
+        
         if ( this.myUser.getMyPlantype() instanceof Gold ) {
             userbuf.append( "Plan : Gold\n" );
         } else if ( this.myUser.getMyPlantype() instanceof Silver ) {
             userbuf.append( "Plan : Silver\n" );
-        }
         }
 
         userbuf.append( "Minit Used : " + this.myUser.getMyinuteUsed() + "\n" );

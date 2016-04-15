@@ -64,12 +64,13 @@ public class AppTest extends TestCase {
     
     @Test
     public void testFile() throws Exception {
-        String[] userfile= new String[4];
+        String[] userfile= new String[5];
         
         userfile[0] = "--file";
         userfile[1] = "user1.txt";
         userfile[2] = "user2.txt";
         userfile[3] = "user3.txt";
+        userfile[4] = "user6.txt";
         
         App.testMain("/target",userfile);
        

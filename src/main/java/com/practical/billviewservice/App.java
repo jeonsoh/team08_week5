@@ -14,10 +14,8 @@ import org.slf4j.LoggerFactory;
 public class App {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
-    private static User myUser = new User();
-    private static Plan myPlan = null;
     
-    private App(String args,int cnt, boolean isFile){
+    private App(String baseDir, String args,int cnt, boolean isFile){
 
         FileInputStream fis =null;
         FileOutputStream fos =null;
@@ -32,22 +30,25 @@ public class App {
             
             if(isFile){
                 if(cnt>0){
-
-                    fis  = new FileInputStream(path.getAbsolutePath()+"/classes/user/"+args);
-                    fos = new FileOutputStream(path.getAbsolutePath()+"/classes/output/"+"out"+cnt+".txt");
-
+                    System.out.println(path.getAbsolutePath()+baseDir+"/classes/user/"+args);
+                    fis  = new FileInputStream(path.getAbsolutePath()+baseDir+"/classes/user/"+args);
+                    fos = new FileOutputStream(path.getAbsolutePath()+baseDir+"/classes/output/"+"out"+cnt+".txt");
+                    for(int count=0; count>=0; count = fis.read(buf) ) {
+                        fos.write(buf, 0, count);
+                    }
+                    appRun(new String(buf, "UTF-8"));
                 }
             }else{
 
                 fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+args);
                 fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/output/"+"out"+cnt+".txt");
-
+                for(int count=0; count>=0; count = fis.read(buf) ) {
+                    fos.write(buf, 0, count);
+                }
+                appRun(new String(buf, "UTF-8"));
             }
 
-            for(int count=0; count>=0; count = fis.read(buf) ) {
-                fos.write(buf, 0, count);
-            }
-            appSet(new String(buf, "UTF-8"));
+           
             
         }catch (Exception e) {
             LOGGER.error("Exception Error", e);
@@ -67,24 +68,50 @@ public class App {
         }
     }
 
-
-
+    /**
+     * command line에서 처리되는 부분 과 test로 잡아준 부
+     * @param args
+     */
     public static void main(String[] args) {
+        boolean isFile = false;
+        if(args == null)
+            return;
+        if("--file".equals(args[0])){
+             isFile = true;
+        }
+         
+        for(int i =0;i<args.length;i++){
+            App app=new App("",args[i],i,isFile);
+            app.showUser(i);
+        }
+    }
+
+
+    /**
+     * 이 경우에는 test에서는 프로젝트가 기본경로가 되지만 mvn package로 할경우 target이 경로가 잡히기 때문이다. 
+     * @param args
+     * @param baseDir baseDir test를 위해 기본경로를 잡아줌 
+     */
+    public static void testMain(String baseDir,String[] args) {
+        if(args == null)
+            return;
         boolean isFile = false;
         if("--file".equals(args[0])){
              isFile = true;
         }
          
         for(int i =0;i<args.length;i++){
-            App app=new App(args[i],i,isFile);
-            app.appRun();
+            App app=new App(baseDir,args[i],i,isFile);
+            app.showUser(i);
         }
     }
 
-    private static void appSet(String line){
+    private static void appRun(String line){
         StringTokenizer parser = new StringTokenizer(line, " ");
         
-
+        User myUser = new User();
+        Plan myPlan = null;
+        
         while(parser.hasMoreTokens()){
             String word = parser.nextToken().toUpperCase(); 
             if("GOLD".equalsIgnoreCase(word)){
@@ -104,16 +131,19 @@ public class App {
             word=parser.nextToken().toUpperCase();             
             myUser.setMyName(word);
         }
-    }
-    
-    private  void appRun() {
         
-        Calculator myCalculator = new Calculator(myUser, myPlan);
+        Calculator myCalculator= new Calculator(myUser, myPlan);
         BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
         billviewsystem.showUser();
         billviewsystem.showPlan();
         billviewsystem.showCalculator();
         billviewsystem.showTotalCalculator();
+    }
+    
+    private  void showUser(int i) {
+        if(i >0){
+            LOGGER.info("위의 내용은"+i+"번째 사용자에 대한 정보입니다");
+        }
     }
 
 }

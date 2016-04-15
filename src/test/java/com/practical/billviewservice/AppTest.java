@@ -56,6 +56,21 @@ public class AppTest extends TestCase {
        
         assertTrue(true);
     }
+    
+    
+    @Test
+    public void testFile() throws Exception {
+        String[] userfile= new String[4];
+        
+        userfile[0] = "--file";
+        userfile[1] = "user1.txt";
+        userfile[2] = "user2.txt";
+        userfile[3] = "user3.txt";
+        
+        App.testMain("/target",userfile);
+       
+        assertTrue(true);
+    }
 
    
 }

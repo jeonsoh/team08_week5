@@ -84,77 +84,73 @@ public class App {
      */
     public static void main(String[] args) {
         boolean isFile = false;
-        if("--file".equals(args[0])){
-            isFile = true;
+        if(args!=null){
+            if("--file".equals(args[0])){
+                isFile = true;
+                
+            }
             for(int i =0;i<args.length;i++){
                 App app=new App("",args[i],i,isFile);
                 app.showUser(i);
             }
-        }else if(args[0]!=null){
-            for(int i =0;i<args.length;i++){
-                App app=new App("",args[i],i,isFile);
-                app.showUser(i);
+        }
+    }
+
+            /**
+             * 이 경우에는 test에서는 프로젝트가 기본경로가 되지만 mvn package로 할경우 target이 경로가 잡히기 때문이다. 
+             * @param args
+             * @param baseDir baseDir test를 위해 기본경로를 잡아줌 
+             */
+            public static void testMain(String baseDir,String[] args) {
+                if("--file".equals(args[0])){
+                    boolean isFile  = true;
+                    for(int i =0;i<args.length;i++){
+                        App app=new App(baseDir,args[i],i,isFile);
+                        app.showUser(i);
+                    }
+                }
             }
-        }
-        
-    }
 
+            private static void appRun(String line){
+                StringTokenizer parser = new StringTokenizer(line, " ");
 
-    /**
-     * 이 경우에는 test에서는 프로젝트가 기본경로가 되지만 mvn package로 할경우 target이 경로가 잡히기 때문이다. 
-     * @param args
-     * @param baseDir baseDir test를 위해 기본경로를 잡아줌 
-     */
-    public static void testMain(String baseDir,String[] args) {
-        if("--file".equals(args[0])){
-            boolean isFile  = true;
-            for(int i =0;i<args.length;i++){
-                App app=new App(baseDir,args[i],i,isFile);
-                app.showUser(i);
+                User myUser = new User();
+                Plan myPlan = null;
+
+                while(parser.hasMoreTokens()){
+                    String word = parser.nextToken().toUpperCase(); 
+                    if("GOLD".equalsIgnoreCase(word)){
+                        myPlan = new Gold();    
+                    }else if("SILVER".equalsIgnoreCase(word))
+                    {
+                        myPlan = new Silver();
+                    }else{
+                        myPlan=null;
+                    }
+                    myUser.setMyPlantype(myPlan);
+
+                    word=parser.nextToken().toUpperCase();
+                    myUser.setMyMiniUsed(Integer.valueOf(word));
+
+                    word=parser.nextToken().toUpperCase();
+                    myUser.setMyLineNum(Integer.valueOf(word));
+
+                    word=parser.nextToken().toUpperCase();             
+                    myUser.setMyName(word);
+                }
+
+                Calculator myCalculator= new Calculator(myUser, myPlan);
+                BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
+                billviewsystem.showUser();
+                billviewsystem.showPlan();
+                billviewsystem.showCalculator();
+                billviewsystem.showTotalCalculator();
             }
-        }
-    }
 
-    private static void appRun(String line){
-        StringTokenizer parser = new StringTokenizer(line, " ");
-
-        User myUser = new User();
-        Plan myPlan = null;
-
-        while(parser.hasMoreTokens()){
-            String word = parser.nextToken().toUpperCase(); 
-            if("GOLD".equalsIgnoreCase(word)){
-                myPlan = new Gold();    
-            }else if("SILVER".equalsIgnoreCase(word))
-            {
-                myPlan = new Silver();
-            }else{
-                myPlan=null;
+            private  void showUser(int i) {
+                if(i >0){
+                    LOGGER.info("위의 내용은"+(i+1)+"번째 사용자에 대한 정보입니다");
+                }
             }
-            myUser.setMyPlantype(myPlan);
 
-            word=parser.nextToken().toUpperCase();
-            myUser.setMyMiniUsed(Integer.valueOf(word));
-
-            word=parser.nextToken().toUpperCase();
-            myUser.setMyLineNum(Integer.valueOf(word));
-
-            word=parser.nextToken().toUpperCase();             
-            myUser.setMyName(word);
         }
-
-        Calculator myCalculator= new Calculator(myUser, myPlan);
-        BillViewService billviewsystem = new BillViewService(myUser, myPlan, myCalculator);
-        billviewsystem.showUser();
-        billviewsystem.showPlan();
-        billviewsystem.showCalculator();
-        billviewsystem.showTotalCalculator();
-    }
-
-    private  void showUser(int i) {
-        if(i >0){
-            LOGGER.info("위의 내용은"+(i+1)+"번째 사용자에 대한 정보입니다");
-        }
-    }
-
-}

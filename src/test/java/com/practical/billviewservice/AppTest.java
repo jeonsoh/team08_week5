@@ -90,5 +90,13 @@ public class AppTest extends TestCase {
         assertTrue(true);
     }
 
+    @Test
+    public void testNull() throws Exception {
+       
+        App.main(null);
+       
+        assertTrue(true);
+    }
+
    
 }

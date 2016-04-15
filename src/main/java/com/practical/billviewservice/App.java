@@ -67,7 +67,7 @@ public class App {
                 if(fis!=null){
                     fis.close();
                 }
-                fis.close();
+             
 
             } catch (Exception e) {                        
                 LOGGER.error("Exception 발", e);

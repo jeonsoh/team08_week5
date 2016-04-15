@@ -46,11 +46,13 @@ public class App {
                     fos.write(buf, 0, count);
                 }
                 appRun(new String(buf, "UTF-8"));
-            }else if(isFile&&(cnt>0)){
+            }else if(cnt>0){
                 for(int count=0; count>=0; count = fis.read(buf) ) {
                     fos.write(buf, 0, count);
                 }
                 appRun(new String(buf, "UTF-8"));
+            }else{
+                LOGGER.info("파일 입력받습니다");
             }
 
 

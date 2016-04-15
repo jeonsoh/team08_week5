@@ -17,7 +17,7 @@ public class App {
     private static User myUser = new User();
     private static Plan myPlan = null;
     
-    private App(String args,int cnt) throws Exception{
+    private App(String args,int cnt){
 
         FileInputStream fis =null;
         FileOutputStream fos =null;
@@ -51,7 +51,6 @@ public class App {
             
         }catch (Exception e) {
             LOGGER.error("Exception Error", e);
-            throw e;
         }finally{
             if(fos!=null )
                 try {
@@ -70,7 +69,7 @@ public class App {
 
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         for(int i =0;i<args.length;i++){
             App app=new App(args[i],i);
             app.appRun();

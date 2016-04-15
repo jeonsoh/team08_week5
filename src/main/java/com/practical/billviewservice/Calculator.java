@@ -15,15 +15,17 @@ public class Calculator {
     public Calculator(User user, Plan plan) {
         this.myUser = user;
         this.myPlan = plan;
-        if (user.getMyLineNum() == 1) {
-            this.familyDiscountMyLine = 0;
-            this.addedMyLine = 0;
-        } else if (user.getMyLineNum() < plan.getFamilyDiscountBasic()) {
-            this.familyDiscountMyLine = 0;
-            this.addedMyLine = user.getMyLineNum() - 1;
-        } else if (user.getMyLineNum() >= plan.getFamilyDiscountBasic()) {
-            this.familyDiscountMyLine = user.getMyLineNum() - plan.getFamilyDiscountBasic();
-            this.addedMyLine = user.getMyLineNum() - this.familyDiscountMyLine - 1;
+        if(user !=null && plan !=null){   
+            if (user.getMyLineNum() == 1) {
+                this.familyDiscountMyLine = 0;
+                this.addedMyLine = 0;
+            } else if (user.getMyLineNum() < plan.getFamilyDiscountBasic()) {
+                this.familyDiscountMyLine = 0;
+                this.addedMyLine = user.getMyLineNum() - 1;
+            } else if (user.getMyLineNum() >= plan.getFamilyDiscountBasic()) {
+                this.familyDiscountMyLine = user.getMyLineNum() - plan.getFamilyDiscountBasic();
+                this.addedMyLine = user.getMyLineNum() - this.familyDiscountMyLine - 1;
+            }
         }
 
     }

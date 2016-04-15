@@ -51,7 +51,7 @@ public class AppTest extends TestCase {
     } 
     @Test
     public void testErrorApp() throws Exception {
-        String[] userfile= new String[10];
+        String[] userfile= new String[2];
         
         userfile[0] = "--file";
         userfile[1] = "user5.txt";
@@ -64,7 +64,7 @@ public class AppTest extends TestCase {
     
     @Test
     public void testFile() throws Exception {
-        String[] userfile= new String[10];
+        String[] userfile= new String[4];
         
         userfile[0] = "--file";
         userfile[1] = "user1.txt";
@@ -78,7 +78,7 @@ public class AppTest extends TestCase {
     
     @Test
     public void testFileError() throws Exception {
-        String[] userfile= new String[10];
+        String[] userfile= new String[4];
         
         userfile[0] = "user1.txt";
         userfile[1] = "user10.txt";

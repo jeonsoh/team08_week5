@@ -86,12 +86,17 @@ public class App {
         boolean isFile = false;
         if("--file".equals(args[0])){
             isFile = true;
+            for(int i =0;i<args.length;i++){
+                App app=new App("",args[i],i,isFile);
+                app.showUser(i);
+            }
+        }else if("SILVER".equalsIgnoreCase(args[0]) || "GOLD".equalsIgnoreCase(args[0])){
+            for(int i =0;i<args.length;i++){
+                App app=new App("",args[i],i,isFile);
+                app.showUser(i);
+            }
         }
-
-        for(int i =0;i<args.length;i++){
-            App app=new App("",args[i],i,isFile);
-            app.showUser(i);
-        }
+        
     }
 
 
@@ -101,14 +106,12 @@ public class App {
      * @param baseDir baseDir test를 위해 기본경로를 잡아줌 
      */
     public static void testMain(String baseDir,String[] args) {
-        boolean isFile = false;
         if("--file".equals(args[0])){
-            isFile = true;
-        }
-
-        for(int i =0;i<args.length;i++){
-            App app=new App(baseDir,args[i],i,isFile);
-            app.showUser(i);
+            boolean isFile  = true;
+            for(int i =0;i<args.length;i++){
+                App app=new App(baseDir,args[i],i,isFile);
+                app.showUser(i);
+            }
         }
     }
 
@@ -125,7 +128,9 @@ public class App {
             }else if("SILVER".equalsIgnoreCase(word))
             {
                 myPlan = new Silver();
-            }        
+            }else{
+                myPlan=null;
+            }
             myUser.setMyPlantype(myPlan);
 
             word=parser.nextToken().toUpperCase();
@@ -148,7 +153,7 @@ public class App {
 
     private  void showUser(int i) {
         if(i >0){
-            LOGGER.info("위의 내용은"+i+"번째 사용자에 대한 정보입니다");
+            LOGGER.info("위의 내용은"+(i+1)+"번째 사용자에 대한 정보입니다");
         }
     }
 

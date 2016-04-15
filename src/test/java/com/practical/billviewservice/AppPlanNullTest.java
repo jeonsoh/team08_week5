@@ -26,19 +26,14 @@ public class AppPlanNullTest extends TestCase {
          myPlan=null;
     }
     
-    public void show(BillViewService billviewservice){
-        billviewservice.showUser();
-        billviewservice.showPlan();
-        billviewservice.showCalculator();
-        billviewservice.showTotalCalculator();
-    }
     
     
     @Test(expected = IllegalStateException.class)
-    public void testMyMiniUsedException3(){
+    public void testNull(){
         try{
+            myPlan=new Gold();
             User user = new User( myPlan, 2, 2, name );
-            user.setMyName(null);                       
+            user.setMyPlantype(null);                       
         }catch(IllegalStateException e){
             ex = e;
             LOGGER.info(ex.getMessage());

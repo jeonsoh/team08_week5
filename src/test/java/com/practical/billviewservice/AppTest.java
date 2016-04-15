@@ -49,8 +49,6 @@ public class AppTest extends TestCase {
         
         userfile[0] = "--file";
         userfile[1] = "user1.txt";
-        userfile[2] = "user2.txt";
-        userfile[3] = "user3.txt";
         
         App.main(userfile);
        

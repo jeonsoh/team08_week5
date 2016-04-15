@@ -32,13 +32,13 @@ public class App {
                 if(cnt>0){
 
                     fis  = new FileInputStream(path.getAbsolutePath()+baseDir+"/classes/user/"+args);
-                    fos = new FileOutputStream(path.getAbsolutePath()+baseDir+"/classes/output/"+"out"+cnt+".txt");
+                    fos = new FileOutputStream(path.getAbsolutePath()+baseDir+"/classes/output/"+"out"+(cnt+1)+".txt");
 
                 }
             }else{
 
                 fis  = new FileInputStream(path.getAbsolutePath()+"/src/main/resources/user/"+args);
-                fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/output/"+"out"+cnt+".txt");
+                fos = new FileOutputStream(path.getAbsolutePath()+"/src/main/resources/output/"+"out"+(cnt+1)+".txt");
 
             }
             if(!isFile || isFile&&(cnt>0)){

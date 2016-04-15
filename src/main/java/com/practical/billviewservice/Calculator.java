@@ -18,10 +18,10 @@ public class Calculator {
         if (user.getMyLineNum() == 1) {
             this.familyDiscountMyLine = 0;
             this.addedMyLine = 0;
-        } else if (user.getMyLineNum() <= plan.getFamilyDiscountBasic()) {
+        } else if (user.getMyLineNum() < plan.getFamilyDiscountBasic()) {
             this.familyDiscountMyLine = 0;
             this.addedMyLine = user.getMyLineNum() - 1;
-        } else if (user.getMyLineNum() > plan.getFamilyDiscountBasic()) {
+        } else if (user.getMyLineNum() >= plan.getFamilyDiscountBasic()) {
             this.familyDiscountMyLine = user.getMyLineNum() - plan.getFamilyDiscountBasic();
             this.addedMyLine = user.getMyLineNum() - this.familyDiscountMyLine - 1;
         }
@@ -38,16 +38,14 @@ public class Calculator {
     public String processCalculator() {
         StringBuilder buf = new StringBuilder();
         buf.append("계산과정 :");
-        //int lineNum = this.myUser.getMyLineNum();
+        
+        buf.append("기본비용: " + this.myPlan.getBasicMontlyRate());
 
-        //if (lineNum > 0) {
-            buf.append("기본비용: " + this.myPlan.getBasicMontlyRate());
-        //}
         // 기본 비용 계산
 
-        //if (addedMyLine > 0) {
-            buf.append(" + 추가라인비용(" + addedMyLine + "*" + this.myPlan.getAdditionalLineRate() + ")");
-//        }
+
+        buf.append(" + 추가라인비용(" + addedMyLine + "*" + this.myPlan.getAdditionalLineRate() + ")");
+
         // 가족 할인이 적용되지 않은 추가 라인 비용 계산
 
         if (familyDiscountMyLine > 0) {

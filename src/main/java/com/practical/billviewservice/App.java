@@ -1,21 +1,22 @@
 package com.practical.billviewservice;
 
 
-import java.io.File;
+/*import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.IOException;*/
 import java.util.StringTokenizer;
 
-import org.slf4j.Logger;
+/*import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+*/
 
 
 public class App {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    //private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-    private App(String baseDir, String args,int cnt, boolean isFile){
+    /*private App(String baseDir, String args,int cnt, boolean isFile){
 
         FileInputStream fis =null;
         FileOutputStream fos =null;
@@ -67,20 +68,22 @@ public class App {
                 }
         }
     }
+    */
 
     /**
      * jar 로 command line에서 처리되는부분과 test로 하는 부분 
      * @param args
      */
     public static void main(String[] args) {
-        boolean isFile = false;
+        /*boolean isFile = false;
         if("--file".equals(args[0])){
             isFile = true;
-        }
-
+        }*/
+        App.appRun("GOLD 100 3 길동");
         for(int i =0;i<args.length;i++){
-            App app=new App("",args[i],i,isFile);
-            app.showUser(i);
+            //App app=new App("",args[i],i,isFile);
+            App.appRun("GOLD 100 3 길동");
+          //  App.showUser(i);
         }
     }
 
@@ -91,14 +94,16 @@ public class App {
      * @param baseDir baseDir test를 위해 기본경로를 잡아줌 
      */
     public static void testMain(String baseDir,String[] args) {
-        boolean isFile = false;
+        /*boolean isFile = false;
         if("--file".equals(args[0])){
             isFile = true;
-        }
+        }*/
 
         for(int i =0;i<args.length;i++){
-            App app=new App(baseDir,args[i],i,isFile);
-            app.showUser(i);
+            //App app=new App(baseDir,args[i],i,isFile);
+            
+            App.appRun("GOLD 100 3 길동");
+            //app.showUser(i);
         }
     }
 
@@ -136,10 +141,11 @@ public class App {
         billviewsystem.showTotalCalculator();
     }
 
+    /*
     private  void showUser(int i) {
         if(i >0){
             LOGGER.info("위의 내용은"+i+"번째 사용자에 대한 정보입니다");
         }
     }
-
+     */
 }

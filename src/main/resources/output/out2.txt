@@ -1,1 +1,1 @@
-SILVER 10 1 심청
+SILVER -1 1 심청
